@@ -19,6 +19,7 @@ SIMPL_START_FILTER_GROUP(
 set(_PublicFilters
 
   Lesson1
+  Lesson2
 )
 
 list(LENGTH _PublicFilters PluginNumFilters)
