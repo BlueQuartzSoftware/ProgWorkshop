@@ -24,6 +24,7 @@ set(_PublicFilters
   Lesson4
   Lesson5
   Lesson6
+  Lesson7
 )
 
 list(LENGTH _PublicFilters PluginNumFilters)

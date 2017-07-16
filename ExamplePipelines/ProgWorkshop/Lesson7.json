@@ -1,0 +1,69 @@
+{
+    "0": {
+        "CellAttributeMatrixName": "CellData",
+        "DataContainerName": "ImageDataContainer",
+        "FileName": "Data/Image/Slice_11.tif",
+        "FilterVersion": "1.0.361",
+        "Filter_Human_Label": "ITK::Image Reader",
+        "Filter_Name": "ITKImageReader",
+        "ImageDataArrayName": "ImageData"
+    },
+    "1": {
+        "CellAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellFeatureData",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FilterVersion": "6.4.78",
+        "Filter_Human_Label": "Crop Geometry (Image)",
+        "Filter_Name": "CropImageGeometry",
+        "NewDataContainerName": "NewImageDataContainer",
+        "RenumberFeatures": 0,
+        "SaveAsNewDataContainer": 0,
+        "UpdateOrigin": 0,
+        "XMax": 380,
+        "XMin": 0,
+        "YMax": 380,
+        "YMin": 0,
+        "ZMax": 0,
+        "ZMin": 0
+    },
+    "2": {
+        "FaceAttributeMatrixName": "FaceData",
+        "FilterVersion": "6.4.78",
+        "Filter_Human_Label": "Create 3D Sphere from 2D Master Pattern",
+        "Filter_Name": "CreateLambertSphere",
+        "Hemisphere": 0,
+        "MasterPatternFaceDataArrayName": "MasterPattern",
+        "MasterPatternImageDataPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "ImageData",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "SurfaceDataContainerName": "QuadDataContainer",
+        "VertexAttributeMatrixName": "VertexData"
+    },
+    "3": {
+        "FilterVersion": "1.0.109",
+        "Filter_Human_Label": "Write DREAM.3D Data File",
+        "Filter_Name": "DataContainerWriter",
+        "OutputFile": "Data/Output/Lesson7.dream3d",
+        "WriteTimeSeries": 0,
+        "WriteXdmfFile": 1
+    },
+    "PipelineBuilder": {
+        "Name": "Lesson7",
+        "Number_Filters": 4,
+        "Version": 6
+    }
+}

@@ -2,23 +2,23 @@
  * Your License or Copyright can go here
  */
 
-#include "Lesson6.h"
+#include "Lesson7.h"
 
 #include "SIMPLib/Common/Constants.h"
-#include "SIMPLib/Geometry/ImageGeom.h"
 #include "SIMPLib/FilterParameters/DataContainerSelectionFilterParameter.h"
+#include "SIMPLib/Geometry/TriangleGeom.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
 
 // Include the MOC generated file for this class
-#include "moc_Lesson6.cpp"
+#include "moc_Lesson7.cpp"
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-Lesson6::Lesson6()
-: AbstractFilter()
+Lesson7::Lesson7() :
+  AbstractFilter()
 {
   initialize();
   setupFilterParameters();
@@ -27,14 +27,14 @@ Lesson6::Lesson6()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-Lesson6::~Lesson6()
+Lesson7::~Lesson7()
 {
 }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-void Lesson6::initialize()
+void Lesson7::initialize()
 {
   setErrorCondition(0);
   setCancel(false);
@@ -43,14 +43,15 @@ void Lesson6::initialize()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-void Lesson6::setupFilterParameters()
+void Lesson7::setupFilterParameters()
 {
   FilterParameterVector parameters;
 
   DataContainerSelectionFilterParameter::RequirementType dcReq;
-  IGeometry::Types geomTypes = {IGeometry::Type::Image};
+  IGeometry::Types geomTypes = {IGeometry::Type::Triangle};
   dcReq.dcGeometryTypes = geomTypes;
-  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson6, dcReq));
+  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson7, dcReq));
+
 
   setFilterParameters(parameters);
 }
@@ -58,81 +59,83 @@ void Lesson6::setupFilterParameters()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-void Lesson6::dataCheck()
+void Lesson7::dataCheck()
 {
   setErrorCondition(0);
-
+  
   //--------------
   // Get the ImageGeometry object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the
   // shared_ptr;
-  ImageGeom::Pointer image = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<ImageGeom>();
-  if(image.get() == nullptr)
+  TriangleGeom::Pointer triGeom = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<TriangleGeom>();
+  if(triGeom.get() == nullptr)
   {
     setErrorCondition(-10010);
-    notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
+    notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an TriangleGeom object.", getErrorCondition());
   }
+
 }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-void Lesson6::preflight()
+void Lesson7::preflight()
 {
   // These are the REQUIRED lines of CODE to make sure the filter behaves correctly
-  setInPreflight(true);              // Set the fact that we are preflighting.
-  emit preflightAboutToExecute();    // Emit this signal so that other widgets can do one file update
+  setInPreflight(true); // Set the fact that we are preflighting.
+  emit preflightAboutToExecute(); // Emit this signal so that other widgets can do one file update
   emit updateFilterParameters(this); // Emit this signal to have the widgets push their values down to the filter
-  dataCheck();                       // Run our DataCheck to make sure everthing is setup correctly
-  emit preflightExecuted();          // We are done preflighting this filter
-  setInPreflight(false);             // Inform the system this filter is NOT in preflight mode anymore.
+  dataCheck(); // Run our DataCheck to make sure everthing is setup correctly
+  emit preflightExecuted(); // We are done preflighting this filter
+  setInPreflight(false); // Inform the system this filter is NOT in preflight mode anymore.
 }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-void Lesson6::execute()
+void Lesson7::execute()
 {
   initialize();
   dataCheck();
-  if(getErrorCondition() < 0)
+  if(getErrorCondition() < 0) { return; }
+
+  if (getCancel() == true) { return; }
+
+  TriangleGeom::Pointer triGeom = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<TriangleGeom>();
+  SharedVertexList::Pointer vertices = triGeom->getVertices();
+  SharedTriList::Pointer triangles = triGeom->getTriangles();
+
+
+  size_t numVerts = vertices->getNumberOfTuples();
+  for(size_t v = 0; v < numVerts; v++)
   {
-    return;
+    float* vert = vertices->getTuplePointer(v); // Get the pointer to the specific Vertex
+    // Now we can get or set the individual XYZ coordinate of the vertex using
+    // [] notation;
+
+    // vert[0] = ....
+    // vert[1] = ....
+    // vert[2] = ....
+
   }
 
-  if(getCancel() == true)
+
+  // We can loop over all the Triangles also
+  size_t numTris = triangles->getNumberOfTuples();
+  for(size_t t = 0; t < numTris; t++)
   {
-    return;
-  }
+    int64_t* tri = triangles->getTuplePointer(t); // get a pointer to the indices that make up Triangle 't'
 
-  // This should work because we just did the same thing in the dataCheck();
-  ImageGeom::Pointer image = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<ImageGeom>();
-  // Get the Dimensions
-  size_t dims[] = {0, 0, 0};
-  image->getDimensions(dims);
-  float origin[] = {0.0f, 0.0f, 0.0f};
-  image->getOrigin(origin);
-
-  float resolution[] = {1.0f, 1.0f, 1.0f};
-  image->getResolution(resolution);
-
-  // DREAM3D/SIMPL store the dimensions as XYZ
-  for(size_t z = 0; z < dims[2]; z++)
-  {
-
-    for(size_t y = 0; y < dims[1]; y++)
+    // We could then loop on each vertex of the triangle
+    for(size_t v = 0; v < 3; v++)
     {
+      size_t vertIndex = tri[v];
 
-      for(size_t x = 0; x < dims[0]; x++)
-      {
-
-        size_t index = (z * dims[1] * dims[0]) + (y * dims[0]) + x;
-
-        // You now have an XYZ coordinate. You can calculate something, perform
-        // an analysis or something else
-
-      }
+      float* vert = vertices->getTuplePointer(vertIndex); // Get the pointer to the specific Vertex
+      // Do something with the vertex like calculate the centroid?
+      // .....
     }
+
   }
 
   notifyStatusMessage(getHumanLabel(), "Complete");
@@ -141,9 +144,9 @@ void Lesson6::execute()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-AbstractFilter::Pointer Lesson6::newFilterInstance(bool copyFilterParameters)
+AbstractFilter::Pointer Lesson7::newFilterInstance(bool copyFilterParameters)
 {
-  Lesson6::Pointer filter = Lesson6::New();
+  Lesson7::Pointer filter = Lesson7::New();
   if(true == copyFilterParameters)
   {
     copyFilterParameterInstanceVariables(filter.get());
@@ -154,15 +157,13 @@ AbstractFilter::Pointer Lesson6::newFilterInstance(bool copyFilterParameters)
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getCompiledLibraryName()
-{
-  return ProgWorkshopConstants::ProgWorkshopBaseName;
-}
+const QString Lesson7::getCompiledLibraryName()
+{ return ProgWorkshopConstants::ProgWorkshopBaseName; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getBrandingString()
+const QString Lesson7::getBrandingString()
 {
   return "ProgWorkshop";
 }
@@ -170,34 +171,29 @@ const QString Lesson6::getBrandingString()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getFilterVersion()
+const QString Lesson7::getFilterVersion()
 {
   QString version;
   QTextStream vStream(&version);
-  vStream << ProgWorkshop::Version::Major() << "." << ProgWorkshop::Version::Minor() << "." << ProgWorkshop::Version::Patch();
+  vStream <<  ProgWorkshop::Version::Major() << "." << ProgWorkshop::Version::Minor() << "." << ProgWorkshop::Version::Patch();
   return version;
 }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getGroupName()
-{
-  return SIMPL::FilterGroups::Unsupported;
-}
+const QString Lesson7::getGroupName()
+{ return SIMPL::FilterGroups::Unsupported; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getSubGroupName()
-{
-  return "ProgWorkshop";
-}
+const QString Lesson7::getSubGroupName()
+{ return "ProgWorkshop"; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getHumanLabel()
-{
-  return "Lesson6";
-}
+const QString Lesson7::getHumanLabel()
+{ return "Lesson7"; }
+
