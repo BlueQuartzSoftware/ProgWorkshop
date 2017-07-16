@@ -42,33 +42,33 @@
     },
     "3": {
         "FilterVersion": "1.0.0",
-        "Filter_Human_Label": "Lesson4",
-        "Filter_Name": "Lesson4",
-        "FloatValue": 128.1230010986328,
+        "Filter_Human_Label": "Lesson5",
+        "Filter_Name": "Lesson5",
+        "FloatValue": 128.1280059814453,
         "InputDataArrayPath": {
             "Attribute Matrix Name": "CellData",
-            "Data Array Name": "Confidence Index",
+            "Data Array Name": "Image Quality",
             "Data Container Name": "ImageDataContainer"
         },
-        "Operator": 0,
+        "Operator": 1,
         "OutputDataArrayPath": {
             "Attribute Matrix Name": "CellData",
-            "Data Array Name": "CI_Mod",
+            "Data Array Name": "IQ_Mod",
             "Data Container Name": "ImageDataContainer"
         },
-        "Selection": 1,
-        "Value": 234
+        "Selection": 0,
+        "Value": 12342.123046875
     },
     "4": {
         "FilterVersion": "1.0.109",
         "Filter_Human_Label": "Write DREAM.3D Data File",
         "Filter_Name": "DataContainerWriter",
-        "OutputFile": "Data/Output/ProgWorkshop/Lesson4.dream3d",
+        "OutputFile": "Data/Output/ProgWorkshop/Lesson5.dream3d",
         "WriteTimeSeries": 0,
         "WriteXdmfFile": 1
     },
     "PipelineBuilder": {
-        "Name": "Lesson4",
+        "Name": "Lesson5",
         "Number_Filters": 5,
         "Version": 6
     }
