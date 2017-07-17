@@ -47,9 +47,14 @@ void Lesson6::setupFilterParameters()
 {
   FilterParameterVector parameters;
 
+  //************************
+  // The DataContainer object is the only object that can hold a Geometry object
+  // so ask the user to select a DataContainer
   DataContainerSelectionFilterParameter::RequirementType dcReq;
+  // Require a DataContainer that holds an ImageGeom object.
   IGeometry::Types geomTypes = {IGeometry::Type::Image};
   dcReq.dcGeometryTypes = geomTypes;
+  // Add the FilterParameter so that it shows up in the GUI
   parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson6, dcReq));
 
   setFilterParameters(parameters);
@@ -127,9 +132,10 @@ void Lesson6::execute()
       {
 
         size_t index = (z * dims[1] * dims[0]) + (y * dims[0]) + x;
-
+        // *****************************
         // You now have an XYZ coordinate. You can calculate something, perform
         // an analysis or something else
+        // *****************************
 
       }
     }
