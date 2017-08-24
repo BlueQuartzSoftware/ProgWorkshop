@@ -26,13 +26,6 @@
 // Include the MOC generated file for this class
 #include "moc_Lesson5.cpp"
 
-class Foo
-{
-  public:
-    void operator()(const tbb::blocked_range<size_t>& r) const
-    {}
-};
-
 /**
  * @brief The Lesson5Impl class implements a threaded algorithm that computes the IPF
  * colors for each element in a geometry
