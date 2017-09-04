@@ -67,13 +67,16 @@ void Lesson7::dataCheck()
   // Get the ImageGeometry object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the
   // shared_ptr;
-  TriangleGeom::Pointer triGeom = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<TriangleGeom>();
-  if(triGeom.get() == nullptr)
+  DataContainer::Pointer dc = getDataContainerArray()->getDataContainer(getGeometrySelection());
+  if(nullptr != dc.get())
   {
-    setErrorCondition(-10010);
-    notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an TriangleGeom object.", getErrorCondition());
+    TriangleGeom::Pointer triGeom = dc->getGeometryAs<TriangleGeom>();
+    if(triGeom.get() == nullptr)
+    {
+      setErrorCondition(-10010);
+      notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an TriangleGeom object.", getErrorCondition());
+    }
   }
-
 }
 
 // -----------------------------------------------------------------------------

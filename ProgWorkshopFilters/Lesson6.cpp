@@ -66,16 +66,20 @@ void Lesson6::setupFilterParameters()
 void Lesson6::dataCheck()
 {
   setErrorCondition(0);
-
+  
   //--------------
   // Get the ImageGeometry object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the
   // shared_ptr;
-  ImageGeom::Pointer image = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<ImageGeom>();
-  if(image.get() == nullptr)
+  DataContainer::Pointer dc = getDataContainerArray()->getDataContainer(getGeometrySelection());
+  if(nullptr != dc.get())
   {
-    setErrorCondition(-10010);
-    notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
+    ImageGeom::Pointer image = dc->getGeometryAs<ImageGeom>();
+    if(image.get() == nullptr)
+    {
+      setErrorCondition(-10010);
+      notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
+    }
   }
 }
 
