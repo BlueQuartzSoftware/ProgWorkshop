@@ -64,7 +64,7 @@ void Lesson7::dataCheck()
   setErrorCondition(0);
   
   //--------------
-  // Get the ImageGeometry object from the selected DataContainer. If we can't get
+  // Get the TriangleGeom object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the
   // shared_ptr;
   DataContainer::Pointer dc = getDataContainerArray()->getDataContainer(getGeometrySelection());

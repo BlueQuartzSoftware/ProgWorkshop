@@ -5,9 +5,9 @@
 #ifndef _lesson1_h_
 #define _lesson1_h_
 
-#include "SIMPLib/SIMPLib.h"
-#include "SIMPLib/Common/AbstractFilter.h"
 #include "SIMPLib/Common/SIMPLibSetGetMacros.h"
+#include "SIMPLib/Filtering/AbstractFilter.h"
+#include "SIMPLib/SIMPLib.h"
 
 /**
  * @brief The Lesson1 class. See [Filter documentation](@ref lesson1) for details.
