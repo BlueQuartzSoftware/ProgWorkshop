@@ -12,9 +12,6 @@
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 
-// Include the MOC generated file for this class
-#include "moc_ProgWorkshopPlugin.cpp"
-
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
@@ -35,9 +32,7 @@ m_DidLoad(false)
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-ProgWorkshopPlugin::~ProgWorkshopPlugin()
-{
-}
+ProgWorkshopPlugin::~ProgWorkshopPlugin() = default;
 
 // -----------------------------------------------------------------------------
 //

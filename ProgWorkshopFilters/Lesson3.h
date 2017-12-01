@@ -131,9 +131,8 @@ class Lesson3 : public AbstractFilter
     DEFINE_DATAARRAY_VARIABLE(float, InputData)
     DEFINE_DATAARRAY_VARIABLE(float, OutputData)
 
-
-    Lesson3(const Lesson3&); // Copy Constructor Not Implemented
-    void operator=(const Lesson3&); // Operator '=' Not Implemented
+    Lesson3(const Lesson3&) = delete;        // Copy Constructor Not Implemented
+    void operator=(const Lesson3&) = delete; // Operator '=' Not Implemented
 };
 
 #endif /* _Lesson3_H_ */

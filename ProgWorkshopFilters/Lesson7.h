@@ -118,8 +118,8 @@ class Lesson7 : public AbstractFilter
     void initialize();
 
   private:
-    Lesson7(const Lesson7&); // Copy Constructor Not Implemented
-    void operator=(const Lesson7&); // Operator '=' Not Implemented
+    Lesson7(const Lesson7&) = delete;        // Copy Constructor Not Implemented
+    void operator=(const Lesson7&) = delete; // Operator '=' Not Implemented
 };
 
 #endif /* _Lesson7_H_ */

@@ -23,9 +23,6 @@
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
 
-// Include the MOC generated file for this class
-#include "moc_Lesson5.cpp"
-
 /**
  * @brief The Lesson5Impl class implements a threaded algorithm that computes the IPF
  * colors for each element in a geometry
@@ -125,9 +122,7 @@ Lesson5::Lesson5()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-Lesson5::~Lesson5()
-{
-}
+Lesson5::~Lesson5() = default;
 
 // -----------------------------------------------------------------------------
 //
