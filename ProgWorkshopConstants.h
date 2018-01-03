@@ -12,8 +12,8 @@
 namespace ProgWorkshopConstants
 {
   const QString ProgWorkshopPluginFile("ProgWorkshopPlugin");
-  const QString ProgWorkshopPluginDisplayName("ProgWorkshopPlugin");
-  const QString ProgWorkshopBaseName("ProgWorkshopPlugin");
+  const QString ProgWorkshopPluginDisplayName("ProgWorkshop Plugin");
+  const QString ProgWorkshopBaseName("ProgWorkshop");
 
   namespace FilterGroups
   {
