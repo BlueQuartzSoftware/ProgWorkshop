@@ -45,7 +45,7 @@ class Lesson7Test
     // Now instantiate the Lesson7Test Filter from the FilterManager
     QString filtName = "Lesson7";
     FilterManager* fm = FilterManager::Instance();
-    IFilterFactory::Pointer filterFactory = fm->getFactoryForFilter(filtName);
+    IFilterFactory::Pointer filterFactory = fm->getFactoryFromClassName(filtName);
     if (nullptr == filterFactory.get())
     {
       std::stringstream ss;
