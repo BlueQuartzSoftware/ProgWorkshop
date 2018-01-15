@@ -37,10 +37,27 @@ ProgWorkshopPlugin::~ProgWorkshopPlugin() = default;
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-QString ProgWorkshopPlugin::getPluginName()
+QString ProgWorkshopPlugin::getPluginFileName()
 {
-  return (ProgWorkshopConstants::ProgWorkshopPluginDisplayName);
+  return ProgWorkshopConstants::ProgWorkshopPluginFile;
 }
+
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+QString ProgWorkshopPlugin::getPluginDisplayName()
+{
+  return ProgWorkshopConstants::ProgWorkshopPluginDisplayName;
+}
+
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+QString ProgWorkshopPlugin::getPluginBaseName()
+{
+  return ProgWorkshopConstants::ProgWorkshopBaseName;
+}
+
 
 // -----------------------------------------------------------------------------
 //
