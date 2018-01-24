@@ -142,7 +142,7 @@ void Lesson7::execute()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-AbstractFilter::Pointer Lesson7::newFilterInstance(bool copyFilterParameters)
+AbstractFilter::Pointer Lesson7::newFilterInstance(bool copyFilterParameters) const
 {
   Lesson7::Pointer filter = Lesson7::New();
   if(true == copyFilterParameters)
@@ -155,13 +155,13 @@ AbstractFilter::Pointer Lesson7::newFilterInstance(bool copyFilterParameters)
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getCompiledLibraryName()
+const QString Lesson7::getCompiledLibraryName() const
 { return ProgWorkshopConstants::ProgWorkshopBaseName; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getBrandingString()
+const QString Lesson7::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -169,7 +169,7 @@ const QString Lesson7::getBrandingString()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getFilterVersion()
+const QString Lesson7::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -180,7 +180,7 @@ const QString Lesson7::getFilterVersion()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getGroupName()
+const QString Lesson7::getGroupName() const
 { return SIMPL::FilterGroups::Unsupported; }
 
 // -----------------------------------------------------------------------------
@@ -194,12 +194,12 @@ const QUuid Lesson7::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getSubGroupName()
+const QString Lesson7::getSubGroupName() const
 { return "ProgWorkshop"; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getHumanLabel()
+const QString Lesson7::getHumanLabel() const
 { return "Lesson7"; }
 

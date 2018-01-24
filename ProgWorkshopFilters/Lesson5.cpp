@@ -292,7 +292,7 @@ void Lesson5::execute()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-AbstractFilter::Pointer Lesson5::newFilterInstance(bool copyFilterParameters)
+AbstractFilter::Pointer Lesson5::newFilterInstance(bool copyFilterParameters) const
 {
   Lesson5::Pointer filter = Lesson5::New();
   if(true == copyFilterParameters)
@@ -305,7 +305,7 @@ AbstractFilter::Pointer Lesson5::newFilterInstance(bool copyFilterParameters)
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getCompiledLibraryName()
+const QString Lesson5::getCompiledLibraryName() const
 {
   return ProgWorkshopConstants::ProgWorkshopBaseName;
 }
@@ -313,7 +313,7 @@ const QString Lesson5::getCompiledLibraryName()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getBrandingString()
+const QString Lesson5::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -321,7 +321,7 @@ const QString Lesson5::getBrandingString()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getFilterVersion()
+const QString Lesson5::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -332,7 +332,7 @@ const QString Lesson5::getFilterVersion()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getGroupName()
+const QString Lesson5::getGroupName() const
 {
   return SIMPL::FilterGroups::Unsupported;
 }
@@ -348,7 +348,7 @@ const QUuid Lesson5::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getSubGroupName()
+const QString Lesson5::getSubGroupName() const
 {
   return "ProgWorkshop";
 }
@@ -356,7 +356,7 @@ const QString Lesson5::getSubGroupName()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getHumanLabel()
+const QString Lesson5::getHumanLabel() const
 {
   return "Lesson5";
 }
