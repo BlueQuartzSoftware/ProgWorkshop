@@ -1,4 +1,4 @@
-Lesson2 {#lesson2}
+Lesson2 
 =============
 
 ## Group (Subgroup) ##
