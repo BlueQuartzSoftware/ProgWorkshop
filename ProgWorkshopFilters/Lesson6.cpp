@@ -113,7 +113,7 @@ void Lesson6::execute()
   ImageGeom::Pointer image = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<ImageGeom>();
   // Get the Dimensions
   size_t dims[] = {0, 0, 0};
-  image->getDimensions(dims);
+  std::tie(dims[0], dims[1], dims[2]) = image->getDimensions();
   float origin[] = {0.0f, 0.0f, 0.0f};
   image->getOrigin(origin);
 
