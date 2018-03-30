@@ -15,7 +15,6 @@
 //
 // -----------------------------------------------------------------------------
 Lesson6::Lesson6()
-: AbstractFilter()
 {
   initialize();
   setupFilterParameters();

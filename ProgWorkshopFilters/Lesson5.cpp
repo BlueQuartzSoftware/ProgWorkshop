@@ -184,7 +184,7 @@ void Lesson5::dataCheck()
   QVector<size_t> cDims = {1}; // Single component Array
   m_InputDataPtr = getDataContainerArray()->getPrereqArrayFromPath<FloatArrayType, AbstractFilter>(this, getInputDataArrayPath(), cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
-  if(nullptr != m_InputDataPtr.lock().get())
+  if(nullptr != m_InputDataPtr.lock())
   {
     m_InputData = m_InputDataPtr.lock()->getPointer(0);/* Now assign the raw pointer to data from the DataArray<T> object */
   }
@@ -194,7 +194,7 @@ void Lesson5::dataCheck()
   cDims[0] = 1; // This is not necessary because we are creating a Single Component Array
   m_OutputDataPtr = getDataContainerArray()->createNonPrereqArrayFromPath<FloatArrayType, AbstractFilter, float>(this, getOutputDataArrayPath(), 0, cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
-  if(nullptr != m_OutputDataPtr.lock().get())
+  if(nullptr != m_OutputDataPtr.lock())
   {
     m_OutputData = m_OutputDataPtr.lock()->getPointer(0);/* Now assign the raw pointer to data from the DataArray<T> object */
   }
