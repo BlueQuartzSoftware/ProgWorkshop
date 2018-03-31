@@ -17,14 +17,12 @@
 //
 // -----------------------------------------------------------------------------
 Lesson1::Lesson1()
-: AbstractFilter(),
-  // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
-  m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, SIMPL::CellData::ConfidenceIndex),
-  m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Lesson1_Output"),
-  m_Value(0.0f)
+: // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
+    m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, SIMPL::CellData::ConfidenceIndex)
+, m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Lesson1_Output")
+, m_Value(0.0f)
 {
   initialize();
-  setupFilterParameters();
 }
 
 // -----------------------------------------------------------------------------

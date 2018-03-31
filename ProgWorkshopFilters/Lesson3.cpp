@@ -18,15 +18,13 @@
 //
 // -----------------------------------------------------------------------------
 Lesson3::Lesson3()
-: AbstractFilter(),
-  // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
-  m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit"),
-  m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit_Modified"),
-  m_Value(45.0f),
-  m_Operator(2)
+: // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
+    m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit")
+, m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit_Modified")
+, m_Value(45.0f)
+, m_Operator(2)
 {
   initialize();
-  setupFilterParameters();
 }
 
 // -----------------------------------------------------------------------------
