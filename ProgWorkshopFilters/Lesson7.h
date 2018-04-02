@@ -122,7 +122,6 @@ class Lesson7 : public AbstractFilter
     */
     void initialize();
 
-  private:
   public:
     Lesson7(const Lesson7&) = delete;        // Copy Constructor Not Implemented
     Lesson7(Lesson7&&) = delete;             // Move Constructor
