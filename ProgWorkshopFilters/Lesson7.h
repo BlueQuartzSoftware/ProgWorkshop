@@ -126,7 +126,7 @@ class Lesson7 : public AbstractFilter
   public:
     Lesson7(const Lesson7&) = delete;        // Copy Constructor Not Implemented
     Lesson7(Lesson7&&) = delete;             // Move Constructor
-    Lesson7& operator=(const Lesson7&) = delete; // Copy Assignment
+    Lesson7& operator=(const Lesson7&) = delete; // Copy Assignment Not Implemented
     Lesson7& operator=(Lesson7&&) = delete;      // Move Assignment
 };
 

@@ -144,7 +144,7 @@ class Lesson4 : public AbstractFilter
   public:
     Lesson4(const Lesson4&) = delete;        // Copy Constructor Not Implemented
     Lesson4(Lesson4&&) = delete;             // Move Constructor
-    Lesson4& operator=(const Lesson4&) = delete; // Copy Assignment
+    Lesson4& operator=(const Lesson4&) = delete; // Copy Assignment Not Implemented
     Lesson4& operator=(Lesson4&&) = delete;      // Move Assignment
 };
 

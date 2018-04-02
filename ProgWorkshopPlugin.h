@@ -157,7 +157,7 @@ class ProgWorkshopPlugin : public QObject, public ISIMPLibPlugin
     bool                m_DidLoad;
 
     ProgWorkshopPlugin(const ProgWorkshopPlugin&) = delete; // Copy Constructor Not Implemented
-    void operator=(const ProgWorkshopPlugin&) = delete;     // Operator '=' Not Implemented
+    void operator=(const ProgWorkshopPlugin&) = delete;     // Move assignment Not Implemented
 };
 
 #endif /* _ProgWorkshop_H_ */
