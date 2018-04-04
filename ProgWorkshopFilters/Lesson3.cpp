@@ -18,15 +18,13 @@
 //
 // -----------------------------------------------------------------------------
 Lesson3::Lesson3()
-: AbstractFilter(),
-  // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
-  m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit"),
-  m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit_Modified"),
-  m_Value(45.0f),
-  m_Operator(2)
+: // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names.
+    m_InputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit")
+, m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "Fit_Modified")
+, m_Value(45.0f)
+, m_Operator(2)
 {
   initialize();
-  setupFilterParameters();
 }
 
 // -----------------------------------------------------------------------------
@@ -93,7 +91,7 @@ void Lesson3::dataCheck()
   QVector<size_t> cDims = {1}; // Single component Array
   m_InputDataPtr = getDataContainerArray()->getPrereqArrayFromPath<FloatArrayType, AbstractFilter>(this, getInputDataArrayPath(), cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
-  if(nullptr != m_InputDataPtr.lock().get())
+  if(nullptr != m_InputDataPtr.lock())
   {
     m_InputData = m_InputDataPtr.lock()->getPointer(0);/* Now assign the raw pointer to data from the DataArray<T> object */
   }
@@ -103,7 +101,7 @@ void Lesson3::dataCheck()
   cDims[0] = 1; // This is not necessary because we are creating a Single Component Array
   m_OutputDataPtr = getDataContainerArray()->createNonPrereqArrayFromPath<FloatArrayType, AbstractFilter, float>(this, getOutputDataArrayPath(), 0, cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
-  if(nullptr != m_OutputDataPtr.lock().get())
+  if(nullptr != m_OutputDataPtr.lock())
   {
     m_OutputData = m_OutputDataPtr.lock()->getPointer(0);/* Now assign the raw pointer to data from the DataArray<T> object */
   }

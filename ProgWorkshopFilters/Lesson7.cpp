@@ -18,7 +18,6 @@ Lesson7::Lesson7() :
   AbstractFilter()
 {
   initialize();
-  setupFilterParameters();
 }
 
 // -----------------------------------------------------------------------------
