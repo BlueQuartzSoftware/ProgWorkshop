@@ -221,7 +221,11 @@ void ProgWorkshopPlugin::readSettings(QSettings& prefs)
 {
 }
 
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+void ProgWorkshopPlugin::registerFilterWidgets(FilterWidgetManager* fwm)
+{
+}
+
 #include "ProgWorkshopFilters/RegisterKnownFilters.cpp"
-
-#include "FilterParameterWidgets/RegisterKnownFilterParameterWidgets.cpp"
-
