@@ -10,10 +10,13 @@
 
 #include "SIMPLib/Plugin/ISIMPLibPlugin.h"
 
+#include "ProgWorkshop/ProgWorkshopDLLExport.h"
+
 /**
  * @brief The ProgWorkshopPlugin class
  */
-class ProgWorkshopPlugin : public QObject, public ISIMPLibPlugin
+class ProgWorkshop_EXPORT ProgWorkshopPlugin : public QObject, public ISIMPLibPlugin
+
 {
     Q_OBJECT
     Q_INTERFACES(ISIMPLibPlugin)
