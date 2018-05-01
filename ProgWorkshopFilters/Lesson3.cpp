@@ -149,7 +149,7 @@ void Lesson3::execute()
   // If your filters are going to take a while to run you should check for the
   // pipeline being canceled. You could potentially put this into the loop below
   // to check every iteration if you wanted to.
-  if(getCancel() == true)
+  if(getCancel())
   {
     return;
   }
