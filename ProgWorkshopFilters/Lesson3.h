@@ -9,10 +9,12 @@
 #include "SIMPLib/Filtering/AbstractFilter.h"
 #include "SIMPLib/SIMPLib.h"
 
+#include "ProgWorkshop/ProgWorkshopDLLExport.h"
+
 /**
  * @brief The Lesson3 class. See [Filter documentation](@ref lesson3) for details.
  */
-class Lesson3 : public AbstractFilter
+class ProgWorkshop_EXPORT Lesson3 : public AbstractFilter
 {
   Q_OBJECT
   PYB11_CREATE_BINDINGS(Lesson3 SUPERCLASS AbstractFilter)
