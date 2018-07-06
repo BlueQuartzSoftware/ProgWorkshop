@@ -2,8 +2,7 @@
  * Your License or Copyright can go here
  */
 
-#ifndef _lesson6_h_
-#define _lesson6_h_
+#pragma once
 
 #include "SIMPLib/Common/SIMPLibSetGetMacros.h"
 #include "SIMPLib/Filtering/AbstractFilter.h"
@@ -133,4 +132,3 @@ public:
   Lesson6& operator=(Lesson6&&) = delete;      // Move Assignment
 };
 
-#endif /* _Lesson6_H_ */

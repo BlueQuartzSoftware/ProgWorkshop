@@ -2,8 +2,7 @@
  * Your License or Copyright can go here
  */
 
-#ifndef _progworkshopplugin_h_
-#define _progworkshopplugin_h_
+#pragma once
 
 #include <QtCore/QObject>
 #include <QtCore/QSettings>
@@ -163,4 +162,3 @@ class ProgWorkshop_EXPORT ProgWorkshopPlugin : public QObject, public ISIMPLibPl
     void operator=(const ProgWorkshopPlugin&) = delete;     // Move assignment Not Implemented
 };
 
-#endif /* _ProgWorkshop_H_ */
