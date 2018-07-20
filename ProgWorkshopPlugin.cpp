@@ -15,18 +15,23 @@
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-ProgWorkshopPlugin::ProgWorkshopPlugin() :
-m_Version("0.1.0"),                            // Initialize ProgWorkshop's Version Number Here
-m_CompatibilityVersion("0.1.0"), // Initialize ProgWorkshop's Compatibility Version Number Here
-m_Vendor("Vendor Name"),                                // Initialize ProgWorkshop's Vendor Name Here
-m_URL("URL"),                                           // Initialize Company URL Here
-m_Location("Location"),                                 // Initialize ProgWorkshop library Location Here
-m_Description("Description"),                           // Initialize ProgWorkshop's Description Here
-m_Copyright("Copyright"),                               // Initialize ProgWorkshop's Copyright Here
-m_Filters(QList<QString>()),                        // Initialize ProgWorkshop's List of Dependencies Here
-m_DidLoad(false)
+ProgWorkshopPlugin::ProgWorkshopPlugin()
+: m_Version(ProgWorkshop::Version::Package())
+, m_CompatibilityVersion(ProgWorkshop::Version::Package())
+, m_Vendor("Open-Source")
+, // Initialize ProgWorkshop's Vendor Name Here
+    m_URL("http://www.github.com/bluequartzsoftware/ProgWorkshop")
+, // Initialize Company URL Here
+    m_Location("")
+, // Initialize ProgWorkshop library Location Here
+    m_Description("Descrption")
+, // Initialize ProgWorkshop's Description Here
+    m_Copyright("")
+, // Initialize ProgWorkshop's Copyright Here
+    m_Filters(QList<QString>())
+, // Initialize ProgWorkshop's List of Dependencies Here
+    m_DidLoad(false)
 {
-
 }
 
 // -----------------------------------------------------------------------------
@@ -57,7 +62,6 @@ QString ProgWorkshopPlugin::getPluginBaseName()
 {
   return ProgWorkshopConstants::ProgWorkshopBaseName;
 }
-
 
 // -----------------------------------------------------------------------------
 //
@@ -111,9 +115,9 @@ QString ProgWorkshopPlugin::getDescription()
   QFileInfo licenseFileInfo(licenseFile);
   QString text = "<<--Description was not read-->>";
 
-  if ( licenseFileInfo.exists() )
+  if(licenseFileInfo.exists())
   {
-    if ( licenseFile.open(QIODevice::ReadOnly | QIODevice::Text) )
+    if(licenseFile.open(QIODevice::ReadOnly | QIODevice::Text))
     {
       QTextStream in(&licenseFile);
       text = in.readAll();
@@ -142,9 +146,9 @@ QString ProgWorkshopPlugin::getLicense()
   QFileInfo licenseFileInfo(licenseFile);
   QString text = "<<--License was not read-->>";
 
-  if ( licenseFileInfo.exists() )
+  if(licenseFileInfo.exists())
   {
-    if ( licenseFile.open(QIODevice::ReadOnly | QIODevice::Text) )
+    if(licenseFile.open(QIODevice::ReadOnly | QIODevice::Text))
     {
       QTextStream in(&licenseFile);
       text = in.readAll();
@@ -161,18 +165,18 @@ QMap<QString, QString> ProgWorkshopPlugin::getThirdPartyLicenses()
   QMap<QString, QString> licenseMap;
   QList<QString> fileStrList;
   fileStrList.push_back(":/ThirdParty/HDF5.txt");
-  
+
   fileStrList.push_back(":/ThirdParty/Qt.txt");
   fileStrList.push_back(":/ThirdParty/Qwt.txt");
 
-  for (QList<QString>::iterator iter = fileStrList.begin(); iter != fileStrList.end(); iter++)
+  for(QList<QString>::iterator iter = fileStrList.begin(); iter != fileStrList.end(); iter++)
   {
     QFile file(*iter);
     QFileInfo licenseFileInfo(file);
 
-    if ( licenseFileInfo.exists() )
+    if(licenseFileInfo.exists())
     {
-      if ( file.open(QIODevice::ReadOnly | QIODevice::Text) )
+      if(file.open(QIODevice::ReadOnly | QIODevice::Text))
       {
         QTextStream in(&file);
         licenseMap.insert(licenseFileInfo.baseName(), in.readAll());
