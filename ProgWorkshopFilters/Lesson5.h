@@ -151,7 +151,7 @@ private:
 
 public:
   Lesson5(const Lesson5&) = delete;            // Copy Constructor Not Implemented
-  Lesson5(Lesson5&&) = delete;                 // Move Constructor
+  Lesson5(Lesson5&&) = delete;                 // Move Constructor Not Implemented
   Lesson5& operator=(const Lesson5&) = delete; // Copy Assignment Not Implemented
   Lesson5& operator=(Lesson5&&) = delete;      // Move Assignment
 };

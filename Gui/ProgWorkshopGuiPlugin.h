@@ -20,7 +20,7 @@ public:
 
 public:
   ProgWorkshopGuiPlugin(const ProgWorkshopGuiPlugin&) = delete;            // Copy Constructor Not Implemented
-  ProgWorkshopGuiPlugin(ProgWorkshopGuiPlugin&&) = delete;                 // Move Constructor
+  ProgWorkshopGuiPlugin(ProgWorkshopGuiPlugin&&) = delete;                 // Move Constructor Not Implemented
   ProgWorkshopGuiPlugin& operator=(const ProgWorkshopGuiPlugin&) = delete; // Copy Assignment Not Implemented
   ProgWorkshopGuiPlugin& operator=(ProgWorkshopGuiPlugin&&) = delete;      // Move Assignment Not Implemented
 };
