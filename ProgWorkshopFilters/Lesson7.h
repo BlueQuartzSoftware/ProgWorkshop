@@ -129,6 +129,6 @@ public:
   Lesson7(const Lesson7&) = delete;            // Copy Constructor Not Implemented
   Lesson7(Lesson7&&) = delete;                 // Move Constructor Not Implemented
   Lesson7& operator=(const Lesson7&) = delete; // Copy Assignment Not Implemented
-  Lesson7& operator=(Lesson7&&) = delete;      // Move Assignment
+  Lesson7& operator=(Lesson7&&) = delete;      // Move Assignment Not Implemented
 };
 
