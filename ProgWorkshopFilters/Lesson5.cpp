@@ -282,7 +282,6 @@ void Lesson5::execute()
     serial.convert(0, numTuples);
   }
 
-  notifyStatusMessage(getHumanLabel(), "Complete");
 }
 
 // -----------------------------------------------------------------------------

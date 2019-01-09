@@ -135,7 +135,6 @@ void Lesson7::execute()
 
   }
 
-  notifyStatusMessage(getHumanLabel(), "Complete");
 }
 
 // -----------------------------------------------------------------------------
