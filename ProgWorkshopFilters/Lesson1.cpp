@@ -44,7 +44,7 @@ void Lesson1::initialize()
 // -----------------------------------------------------------------------------
 void Lesson1::setupFilterParameters()
 {
-  FilterParameterVector parameters;
+  FilterParameterVectorType parameters;
   DataArraySelectionFilterParameter::RequirementType dasReq;
   parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::RequiredArray, Lesson1, dasReq));
   DataArrayCreationFilterParameter::RequirementType dacReq;

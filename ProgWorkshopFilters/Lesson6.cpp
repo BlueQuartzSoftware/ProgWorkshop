@@ -38,7 +38,7 @@ void Lesson6::initialize()
 // -----------------------------------------------------------------------------
 void Lesson6::setupFilterParameters()
 {
-  FilterParameterVector parameters;
+  FilterParameterVectorType parameters;
 
   //************************
   // The DataContainer object is the only object that can hold a Geometry object

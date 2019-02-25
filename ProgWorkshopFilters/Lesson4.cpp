@@ -49,7 +49,7 @@ void Lesson4::initialize()
 // -----------------------------------------------------------------------------
 void Lesson4::setupFilterParameters()
 {
-  FilterParameterVector parameters;
+  FilterParameterVectorType parameters;
   //-- Add a Requirement to the input array that is be of type float and 1 component
   DataArraySelectionFilterParameter::RequirementType dasReq = DataArraySelectionFilterParameter::CreateCategoryRequirement(SIMPL::TypeNames::Float, 1, AttributeMatrix::Category::Any);
   parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::RequiredArray, Lesson4, dasReq));

@@ -39,7 +39,7 @@ void Lesson7::initialize()
 // -----------------------------------------------------------------------------
 void Lesson7::setupFilterParameters()
 {
-  FilterParameterVector parameters;
+  FilterParameterVectorType parameters;
 
   DataContainerSelectionFilterParameter::RequirementType dcReq;
   IGeometry::Types geomTypes = {IGeometry::Type::Triangle};
