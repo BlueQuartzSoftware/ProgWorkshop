@@ -70,8 +70,7 @@ void Lesson6::dataCheck()
     ImageGeom::Pointer image = dc->getGeometryAs<ImageGeom>();
     if(image.get() == nullptr)
     {
-      setErrorCondition(-10010);
-      notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
+      notifyErrorMessage("", "Selected DataContainer does not have an ImageGeom object.", -10010);
     }
   }
 }
