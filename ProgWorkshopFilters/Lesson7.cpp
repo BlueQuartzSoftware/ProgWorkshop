@@ -67,7 +67,8 @@ void Lesson7::dataCheck()
     TriangleGeom::Pointer triGeom = dc->getGeometryAs<TriangleGeom>();
     if(triGeom.get() == nullptr)
     {
-      notifyErrorMessage("", "Selected DataContainer does not have an TriangleGeom object.", -10010);
+      setErrorCondition(-10010);
+      notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an TriangleGeom object.", getErrorCondition());
     }
   }
 }
