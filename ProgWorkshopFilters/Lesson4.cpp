@@ -115,13 +115,13 @@ void Lesson4::dataCheck()
   if(getValue() < 0.0f)
   {
     setErrorCondition(-10000);
-    notifyErrorMessage(getHumanLabel(), "Float value must be greater than 0.0", getErrorCondition());
+    notifyErrorMessage("Float value must be greater than 0.0", getErrorCondition());
   }
 
   if(getOperator() < 0 || getOperator() > 3)
   {
     setErrorCondition(-10001);
-    notifyErrorMessage(getHumanLabel(), "The operator can only have values of 0,1,2,3", getErrorCondition());
+    notifyErrorMessage("The operator can only have values of 0,1,2,3", getErrorCondition());
   }
 
   if(getSelection())
@@ -129,7 +129,7 @@ void Lesson4::dataCheck()
     if(getFloatValue() < 100 || getFloatValue() > 200)
     {
       setErrorCondition(-10002);
-      notifyErrorMessage(getHumanLabel(), "FloatValue should be in the range of 100 to 200", getErrorCondition());
+      notifyErrorMessage("FloatValue should be in the range of 100 to 200", getErrorCondition());
     }
   }
 }
@@ -210,7 +210,7 @@ void Lesson4::execute()
   {
     QString ss = QObject::tr("The correct operator was not set. Valid values are 0,1,2,3");
     setErrorCondition(-100001);
-    notifyErrorMessage(getHumanLabel(), ss, getErrorCondition());
+    notifyErrorMessage(ss, getErrorCondition());
     return;
   }
 

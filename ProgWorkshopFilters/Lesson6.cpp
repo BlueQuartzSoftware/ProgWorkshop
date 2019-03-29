@@ -71,7 +71,7 @@ void Lesson6::dataCheck()
     if(image.get() == nullptr)
     {
       setErrorCondition(-10010);
-      notifyErrorMessage(getHumanLabel(), "Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
+      notifyErrorMessage("Selected DataContainer does not have an ImageGeom object.", getErrorCondition());
     }
   }
 }
