@@ -35,7 +35,7 @@ Lesson2::~Lesson2() = default;
 // -----------------------------------------------------------------------------
 void Lesson2::initialize()
 {
-  setErrorCondition(0);
+  clearErrorCondition();
   setCancel(false);
 }
 
@@ -61,7 +61,7 @@ void Lesson2::setupFilterParameters()
 void Lesson2::dataCheck()
 {
   // Reset the error condition to ZERO
-  setErrorCondition(0);
+  clearErrorCondition();
 
   /* This method should be used to sanity all the filter parameters to make sure
    * they meet your expectations

@@ -30,7 +30,7 @@ Lesson7::~Lesson7() = default;
 // -----------------------------------------------------------------------------
 void Lesson7::initialize()
 {
-  setErrorCondition(0);
+  clearErrorCondition();
   setCancel(false);
 }
 
@@ -55,8 +55,8 @@ void Lesson7::setupFilterParameters()
 // -----------------------------------------------------------------------------
 void Lesson7::dataCheck()
 {
-  setErrorCondition(0);
-  
+  clearErrorCondition();
+
   //--------------
   // Get the TriangleGeom object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the

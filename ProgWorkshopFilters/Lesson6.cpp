@@ -29,7 +29,7 @@ Lesson6::~Lesson6() = default;
 // -----------------------------------------------------------------------------
 void Lesson6::initialize()
 {
-  setErrorCondition(0);
+  clearErrorCondition();
   setCancel(false);
 }
 
@@ -58,8 +58,8 @@ void Lesson6::setupFilterParameters()
 // -----------------------------------------------------------------------------
 void Lesson6::dataCheck()
 {
-  setErrorCondition(0);
-  
+  clearErrorCondition();
+
   //--------------
   // Get the ImageGeometry object from the selected DataContainer. If we can't get
   // it or the downcast does not work then we will get a nullptr wrapped in the
