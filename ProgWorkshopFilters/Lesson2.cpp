@@ -91,8 +91,7 @@ void Lesson2::dataCheck()
 
   if(getValue() < 0.0f)
   {
-    setErrorCondition(-10000);
-    notifyErrorMessage("Float value must be greater than 0.0", getErrorCondition());
+    setErrorCondition(-10000, "Float value must be greater than 0.0");
   }
 
 }
@@ -162,8 +161,7 @@ void Lesson2::execute()
   if(getErrorCondition() < 0)
   {
     QString ss = QObject::tr("An error occurred during the execution of the filter.");
-    setErrorCondition(-100001);
-    notifyErrorMessage(ss, getErrorCondition());
+    setErrorCondition(-100001, ss);
     return;
   }
 

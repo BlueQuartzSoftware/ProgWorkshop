@@ -199,22 +199,19 @@ void Lesson5::dataCheck()
 
   if(getValue() < 0.0f)
   {
-    setErrorCondition(-10000);
-    notifyErrorMessage("Float value must be greater than 0.0", getErrorCondition());
+    setErrorCondition(-10000, "Float value must be greater than 0.0");
   }
 
   if(getOperator() < 0 || getOperator() > 3)
   {
-    setErrorCondition(-10001);
-    notifyErrorMessage("The operator can only have values of 0,1,2,3", getErrorCondition());
+    setErrorCondition(-10001, "The operator can only have values of 0,1,2,3");
   }
 
   if(getSelection())
   {
     if(getFloatValue() < 100 || getFloatValue() > 200)
     {
-      setErrorCondition(-10002);
-      notifyErrorMessage("FloatValue should be in the range of 100 to 200", getErrorCondition());
+      setErrorCondition(-10002, "FloatValue should be in the range of 100 to 200");
     }
   }
 }
