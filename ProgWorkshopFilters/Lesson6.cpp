@@ -29,7 +29,7 @@ Lesson6::~Lesson6() = default;
 // -----------------------------------------------------------------------------
 void Lesson6::initialize()
 {
-  clearErrorCondition();
+  clearErrorCode();
   setCancel(false);
 }
 
@@ -58,7 +58,7 @@ void Lesson6::setupFilterParameters()
 // -----------------------------------------------------------------------------
 void Lesson6::dataCheck()
 {
-  clearErrorCondition();
+  clearErrorCode();
 
   //--------------
   // Get the ImageGeometry object from the selected DataContainer. If we can't get

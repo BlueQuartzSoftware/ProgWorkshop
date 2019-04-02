@@ -30,7 +30,7 @@ Lesson7::~Lesson7() = default;
 // -----------------------------------------------------------------------------
 void Lesson7::initialize()
 {
-  clearErrorCondition();
+  clearErrorCode();
   setCancel(false);
 }
 
@@ -55,7 +55,7 @@ void Lesson7::setupFilterParameters()
 // -----------------------------------------------------------------------------
 void Lesson7::dataCheck()
 {
-  clearErrorCondition();
+  clearErrorCode();
 
   //--------------
   // Get the TriangleGeom object from the selected DataContainer. If we can't get

@@ -40,7 +40,7 @@ Lesson4::~Lesson4() = default;
 // -----------------------------------------------------------------------------
 void Lesson4::initialize()
 {
-  clearErrorCondition();
+  clearErrorCode();
   setCancel(false);
 }
 
@@ -84,7 +84,7 @@ void Lesson4::setupFilterParameters()
 void Lesson4::dataCheck()
 {
   // Reset the error condition to ZERO
-  clearErrorCondition();
+  clearErrorCode();
 
   /* This method should be used to sanity all the filter parameters to make sure
    * they meet your expectations

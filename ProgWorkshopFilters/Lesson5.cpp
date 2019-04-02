@@ -125,7 +125,7 @@ Lesson5::~Lesson5() = default;
 // -----------------------------------------------------------------------------
 void Lesson5::initialize()
 {
-  clearErrorCondition();
+  clearErrorCode();
   setCancel(false);
 }
 
@@ -169,7 +169,7 @@ void Lesson5::setupFilterParameters()
 void Lesson5::dataCheck()
 {
   // Reset the error condition to ZERO
-  clearErrorCondition();
+  clearErrorCode();
 
   /* This method should be used to sanity all the filter parameters to make sure
    * they meet your expectations
