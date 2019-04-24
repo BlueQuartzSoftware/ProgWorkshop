@@ -171,7 +171,7 @@ void Lesson1::execute()
 AbstractFilter::Pointer Lesson1::newFilterInstance(bool copyFilterParameters) const
 {
   Lesson1::Pointer filter = Lesson1::New();
-  if(true == copyFilterParameters)
+  if(copyFilterParameters)
   {
     copyFilterParameterInstanceVariables(filter.get());
   }
