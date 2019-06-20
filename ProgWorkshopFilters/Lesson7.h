@@ -17,7 +17,7 @@ class ProgWorkshop_EXPORT Lesson7 : public AbstractFilter
 {
   Q_OBJECT
   PYB11_CREATE_BINDINGS(Lesson7 SUPERCLASS AbstractFilter)
-  PYB11_PROPERTY(QString GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
+  PYB11_PROPERTY(DataArrayPath GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
 
 public:
   SIMPL_SHARED_POINTERS(Lesson7)
@@ -26,8 +26,8 @@ public:
 
   ~Lesson7() override;
 
-  SIMPL_FILTER_PARAMETER(QString, GeometrySelection)
-  Q_PROPERTY(QString GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
+  SIMPL_FILTER_PARAMETER(DataArrayPath, GeometrySelection)
+  Q_PROPERTY(DataArrayPath GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
 
   /**
    * @brief getCompiledLibraryName Reimplemented from @see AbstractFilter class

@@ -93,7 +93,10 @@ void Lesson7::execute()
 {
   initialize();
   dataCheck();
-  if(getErrorCondition() < 0) { return; }
+  if(getErrorCode() < 0)
+  {
+    return;
+  }
 
   if (getCancel() == true) { return; }
 
@@ -120,7 +123,7 @@ void Lesson7::execute()
   size_t numTris = triangles->getNumberOfTuples();
   for(size_t t = 0; t < numTris; t++)
   {
-    int64_t* tri = triangles->getTuplePointer(t); // get a pointer to the indices that make up Triangle 't'
+    MeshIndexType* tri = triangles->getTuplePointer(t); // get a pointer to the indices that make up Triangle 't'
 
     // We could then loop on each vertex of the triangle
     for(size_t v = 0; v < 3; v++)

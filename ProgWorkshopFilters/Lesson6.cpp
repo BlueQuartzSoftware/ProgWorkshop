@@ -96,7 +96,7 @@ void Lesson6::execute()
 {
   initialize();
   dataCheck();
-  if(getErrorCondition() < 0)
+  if(getErrorCode() < 0)
   {
     return;
   }
@@ -109,13 +109,9 @@ void Lesson6::execute()
   // This should work because we just did the same thing in the dataCheck();
   ImageGeom::Pointer image = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<ImageGeom>();
   // Get the Dimensions
-  size_t dims[] = {0, 0, 0};
-  std::tie(dims[0], dims[1], dims[2]) = image->getDimensions();
-  float origin[] = {0.0f, 0.0f, 0.0f};
-  image->getOrigin(origin);
-
-  float resolution[] = {1.0f, 1.0f, 1.0f};
-  image->getResolution(resolution);
+  SizeVec3Type dims = image->getDimensions();
+  FloatVec3Type origin = image->getOrigin();
+  FloatVec3Type spacing = image->getSpacing();
 
   // DREAM3D/SIMPL store the dimensions as XYZ
   for(size_t z = 0; z < dims[2]; z++)

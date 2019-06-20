@@ -11,7 +11,7 @@
 #include "SIMPLib/Filtering/FilterManager.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
-
+#include "ProgWorkshop/ProgWorkshopVersion.h"
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
