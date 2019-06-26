@@ -88,7 +88,7 @@ void Lesson3::dataCheck()
   // Be sure to add  DEFINE_DATAARRAY_VARIABLE(float, InputData)  in the header in the private section
   // m_InputData is a **RAW** pointer which is both dangerous and fast
   // An error message will be broadcasted if there are any errors
-  QVector<size_t> cDims = {1}; // Single component Array
+  std::vector<size_t> cDims = {1}; // Single component Array
   m_InputDataPtr = getDataContainerArray()->getPrereqArrayFromPath<FloatArrayType, AbstractFilter>(this, getInputDataArrayPath(), cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
   if(nullptr != m_InputDataPtr.lock())
