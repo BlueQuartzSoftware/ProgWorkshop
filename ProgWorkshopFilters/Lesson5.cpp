@@ -4,20 +4,13 @@
 
 #include "Lesson5.h"
 
-#ifdef SIMPL_USE_PARALLEL_ALGORITHMS
-#include <tbb/blocked_range.h>
-#include <tbb/parallel_for.h>
-#include <tbb/partitioner.h>
-#include <tbb/task_scheduler_init.h>
-#endif
-
 #include "SIMPLib/Common/Constants.h"
-
+#include "SIMPLib/FilterParameters/ChoiceFilterParameter.h"
 #include "SIMPLib/FilterParameters/DataArrayCreationFilterParameter.h"
 #include "SIMPLib/FilterParameters/DataArraySelectionFilterParameter.h"
 #include "SIMPLib/FilterParameters/FloatFilterParameter.h"
-#include "SIMPLib/FilterParameters/ChoiceFilterParameter.h"
 #include "SIMPLib/FilterParameters/LinkedBooleanFilterParameter.h"
+#include "SIMPLib/Utilities/ParallelDataAlgorithm.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
@@ -38,9 +31,8 @@ public:
   , m_FValue(fValue)
   {
   }
-  virtual ~Lesson5Impl()
-  {
-  }
+
+  virtual ~Lesson5Impl() = default;
 
   void convert(size_t start, size_t end) const
   {
@@ -83,12 +75,11 @@ public:
     }
   }
 
-#ifdef SIMPL_USE_PARALLEL_ALGORITHMS
-  void operator()(const tbb::blocked_range<size_t>& r) const
+  void operator()(const SIMPLRange& range) const
   {
-    convert(r.begin(), r.end());
+    convert(range.min(), range.max());
   }
-#endif
+
 private:
   float* m_Input;
   float* m_Output;
@@ -261,24 +252,10 @@ void Lesson5::execute()
   /****************************************************************************/
   size_t numTuples = m_InputDataPtr.lock()->getNumberOfTuples();
 
-#ifdef SIMPL_USE_PARALLEL_ALGORITHMS
-  tbb::task_scheduler_init init;
-  bool doParallel = true;
-#endif
-
-#ifdef SIMPL_USE_PARALLEL_ALGORITHMS
-  if(doParallel == true)
-  {
-    tbb::parallel_for(tbb::blocked_range<size_t>(0, numTuples), Lesson5Impl(m_InputData, m_OutputData, m_Operator, m_Value, m_Selection, m_FloatValue),
-                      tbb::auto_partitioner());
-  }
-  else
-#endif
-  {
-    Lesson5Impl serial(m_InputData, m_OutputData, m_Operator, m_Value, m_Selection, m_FloatValue);
-    serial.convert(0, numTuples);
-  }
-
+  // Allow data-based parallelization
+  ParallelDataAlgorithm dataAlg;
+  dataAlg.setRange(0, numTuples);
+  dataAlg.execute(Lesson5Impl(m_InputData, m_OutputData, m_Operator, m_Value, m_Selection, m_FloatValue));
 }
 
 // -----------------------------------------------------------------------------
