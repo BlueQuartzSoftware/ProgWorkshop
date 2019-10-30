@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "SIMPLib/Common/SIMPLibSetGetMacros.h"
-#include "SIMPLib/Filtering/AbstractFilter.h"
 #include "SIMPLib/SIMPLib.h"
+#include "SIMPLib/Filtering/AbstractFilter.h"
+#include "SIMPLib/DataArrays/DataArray.hpp"
 
 #include "ProgWorkshop/ProgWorkshopDLLExport.h"
 
@@ -16,57 +16,136 @@
 class ProgWorkshop_EXPORT Lesson4 : public AbstractFilter
 {
   Q_OBJECT
+
+#ifdef SIMPL_ENABLE_PYTHON
   PYB11_CREATE_BINDINGS(Lesson4 SUPERCLASS AbstractFilter)
+  PYB11_SHARED_POINTERS(Lesson4)
+  PYB11_FILTER_NEW_MACRO(Lesson4)
+  PYB11_FILTER_PARAMETER(DataArrayPath, InputDataArrayPath)
+  PYB11_FILTER_PARAMETER(DataArrayPath, OutputDataArrayPath)
+  PYB11_FILTER_PARAMETER(float, Value)
+  PYB11_FILTER_PARAMETER(int, Operator)
+  PYB11_FILTER_PARAMETER(bool, Selection)
+  PYB11_FILTER_PARAMETER(float, FloatValue)
   PYB11_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
   PYB11_PROPERTY(DataArrayPath OutputDataArrayPath READ getOutputDataArrayPath WRITE setOutputDataArrayPath)
   PYB11_PROPERTY(float Value READ getValue WRITE setValue)
   PYB11_PROPERTY(int Operator READ getOperator WRITE setOperator)
   PYB11_PROPERTY(bool Selection READ getSelection WRITE setSelection)
   PYB11_PROPERTY(float FloatValue READ getFloatValue WRITE setFloatValue)
+#endif
 
 public:
-  SIMPL_SHARED_POINTERS(Lesson4)
-  SIMPL_FILTER_NEW_MACRO(Lesson4)
-  SIMPL_TYPE_MACRO_SUPER_OVERRIDE(Lesson4, AbstractFilter)
+  using Self = Lesson4;
+  using Pointer = std::shared_ptr<Self>;
+  using ConstPointer = std::shared_ptr<const Self>;
+  using WeakPointer = std::weak_ptr<Self>;
+  using ConstWeakPointer = std::weak_ptr<Self>;
+  static Pointer NullPointer();
+
+  static std::shared_ptr<Lesson4> New();
+
+  /**
+   * @brief Returns the name of the class for Lesson4
+   */
+  QString getNameOfClass() const override;
+  /**
+   * @brief Returns the name of the class for Lesson4
+   */
+  static QString ClassName();
 
   ~Lesson4() override;
 
-  SIMPL_FILTER_PARAMETER(DataArrayPath, InputDataArrayPath)
+  /**
+   * @brief Setter property for InputDataArrayPath
+   */
+  void setInputDataArrayPath(const DataArrayPath& value);
+  /**
+   * @brief Getter property for InputDataArrayPath
+   * @return Value of InputDataArrayPath
+   */
+  DataArrayPath getInputDataArrayPath() const;
+
   Q_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
 
-  SIMPL_FILTER_PARAMETER(DataArrayPath, OutputDataArrayPath)
+  /**
+   * @brief Setter property for OutputDataArrayPath
+   */
+  void setOutputDataArrayPath(const DataArrayPath& value);
+  /**
+   * @brief Getter property for OutputDataArrayPath
+   * @return Value of OutputDataArrayPath
+   */
+  DataArrayPath getOutputDataArrayPath() const;
+
   Q_PROPERTY(DataArrayPath OutputDataArrayPath READ getOutputDataArrayPath WRITE setOutputDataArrayPath)
 
-  SIMPL_FILTER_PARAMETER(float, Value)
+  /**
+   * @brief Setter property for Value
+   */
+  void setValue(float value);
+  /**
+   * @brief Getter property for Value
+   * @return Value of Value
+   */
+  float getValue() const;
+
   Q_PROPERTY(float Value READ getValue WRITE setValue)
 
-  SIMPL_FILTER_PARAMETER(int, Operator)
+  /**
+   * @brief Setter property for Operator
+   */
+  void setOperator(int value);
+  /**
+   * @brief Getter property for Operator
+   * @return Value of Operator
+   */
+  int getOperator() const;
+
   Q_PROPERTY(int Operator READ getOperator WRITE setOperator)
 
-  SIMPL_FILTER_PARAMETER(bool, Selection)
+  /**
+   * @brief Setter property for Selection
+   */
+  void setSelection(bool value);
+  /**
+   * @brief Getter property for Selection
+   * @return Value of Selection
+   */
+  bool getSelection() const;
+
   Q_PROPERTY(bool Selection READ getSelection WRITE setSelection)
 
-  SIMPL_FILTER_PARAMETER(float, FloatValue)
+  /**
+   * @brief Setter property for FloatValue
+   */
+  void setFloatValue(float value);
+  /**
+   * @brief Getter property for FloatValue
+   * @return Value of FloatValue
+   */
+  float getFloatValue() const;
+
   Q_PROPERTY(float FloatValue READ getFloatValue WRITE setFloatValue)
 
   /**
    * @brief getCompiledLibraryName Reimplemented from @see AbstractFilter class
    */
-  const QString getCompiledLibraryName() const override;
+  QString getCompiledLibraryName() const override;
 
   /**
    * @brief getBrandingString Returns the branding string for the filter, which is a tag
    * used to denote the filter's association with specific plugins
    * @return Branding string
    */
-  const QString getBrandingString() const override;
+  QString getBrandingString() const override;
 
   /**
    * @brief getFilterVersion Returns a version string for this filter. Default
    * value is an empty string.
    * @return
    */
-  const QString getFilterVersion() const override;
+  QString getFilterVersion() const override;
 
   /**
    * @brief newFilterInstance Reimplemented from @see AbstractFilter class
@@ -76,23 +155,23 @@ public:
   /**
    * @brief getGroupName Reimplemented from @see AbstractFilter class
    */
-  const QString getGroupName() const override;
+  QString getGroupName() const override;
 
   /**
    * @brief getSubGroupName Reimplemented from @see AbstractFilter class
    */
-  const QString getSubGroupName() const override;
+  QString getSubGroupName() const override;
 
   /**
    * @brief getUuid Return the unique identifier for this filter.
    * @return A QUuid object.
    */
-  const QUuid getUuid() override;
+  QUuid getUuid() const override;
 
   /**
    * @brief getHumanLabel Reimplemented from @see AbstractFilter class
    */
-  const QString getHumanLabel() const override;
+  QString getHumanLabel() const override;
 
   /**
    * @brief setupFilterParameters Reimplemented from @see AbstractFilter class
@@ -146,8 +225,17 @@ protected:
   void initialize();
 
 private:
-  DEFINE_DATAARRAY_VARIABLE(float, InputData)
-  DEFINE_DATAARRAY_VARIABLE(float, OutputData)
+  std::weak_ptr<DataArray<float>> m_InputDataPtr;
+  float* m_InputData = nullptr;
+  std::weak_ptr<DataArray<float>> m_OutputDataPtr;
+  float* m_OutputData = nullptr;
+
+  DataArrayPath m_InputDataArrayPath = {};
+  DataArrayPath m_OutputDataArrayPath = {};
+  float m_Value = {};
+  int m_Operator = {};
+  bool m_Selection = {};
+  float m_FloatValue = {};
 
 public:
   Lesson4(const Lesson4&) = delete;            // Copy Constructor Not Implemented

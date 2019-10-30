@@ -4,11 +4,14 @@
 
 #include "Lesson1.h"
 
+#include <QtCore/QTextStream>
+
 #include "SIMPLib/Common/Constants.h"
 
 #include "SIMPLib/FilterParameters/DataArrayCreationFilterParameter.h"
 #include "SIMPLib/FilterParameters/DataArraySelectionFilterParameter.h"
 #include "SIMPLib/FilterParameters/FloatFilterParameter.h"
+#include "SIMPLib/DataContainers/DataContainerArray.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
@@ -180,7 +183,7 @@ AbstractFilter::Pointer Lesson1::newFilterInstance(bool copyFilterParameters) co
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getCompiledLibraryName() const
+QString Lesson1::getCompiledLibraryName() const
 {
   return ProgWorkshopConstants::ProgWorkshopBaseName;
 }
@@ -188,7 +191,7 @@ const QString Lesson1::getCompiledLibraryName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getBrandingString() const
+QString Lesson1::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -196,7 +199,7 @@ const QString Lesson1::getBrandingString() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getFilterVersion() const
+QString Lesson1::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -207,7 +210,7 @@ const QString Lesson1::getFilterVersion() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getGroupName() const
+QString Lesson1::getGroupName() const
 {
   return SIMPL::FilterGroups::Unsupported;
 }
@@ -215,7 +218,7 @@ const QString Lesson1::getGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QUuid Lesson1::getUuid()
+QUuid Lesson1::getUuid() const
 {
   return QUuid("{52ce1c70-74b1-581a-af32-0212c8396739}");
 }
@@ -223,7 +226,7 @@ const QUuid Lesson1::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getSubGroupName() const
+QString Lesson1::getSubGroupName() const
 {
   return "ProgWorkshop";
 }
@@ -231,7 +234,72 @@ const QString Lesson1::getSubGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson1::getHumanLabel() const
+QString Lesson1::getHumanLabel() const
 {
   return "Lesson1";
+}
+
+// -----------------------------------------------------------------------------
+Lesson1::Pointer Lesson1::NullPointer()
+{
+  return Pointer(static_cast<Self*>(nullptr));
+}
+
+// -----------------------------------------------------------------------------
+std::shared_ptr<Lesson1> Lesson1::New()
+{
+  struct make_shared_enabler : public Lesson1
+  {
+  };
+  std::shared_ptr<make_shared_enabler> val = std::make_shared<make_shared_enabler>();
+  val->setupFilterParameters();
+  return val;
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson1::getNameOfClass() const
+{
+  return QString("Lesson1");
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson1::ClassName()
+{
+  return QString("Lesson1");
+}
+
+// -----------------------------------------------------------------------------
+void Lesson1::setInputDataArrayPath(const DataArrayPath& value)
+{
+  m_InputDataArrayPath = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson1::getInputDataArrayPath() const
+{
+  return m_InputDataArrayPath;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson1::setOutputDataArrayPath(const DataArrayPath& value)
+{
+  m_OutputDataArrayPath = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson1::getOutputDataArrayPath() const
+{
+  return m_OutputDataArrayPath;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson1::setValue(float value)
+{
+  m_Value = value;
+}
+
+// -----------------------------------------------------------------------------
+float Lesson1::getValue() const
+{
+  return m_Value;
 }

@@ -4,9 +4,14 @@
 
 #include "Lesson7.h"
 
+#include <QtCore/QTextStream>
+
 #include "SIMPLib/Common/Constants.h"
+
 #include "SIMPLib/FilterParameters/DataContainerSelectionFilterParameter.h"
 #include "SIMPLib/Geometry/TriangleGeom.h"
+#include "SIMPLib/DataContainers/DataContainerArray.h"
+#include "SIMPLib/DataContainers/DataContainer.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
@@ -14,8 +19,7 @@
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-Lesson7::Lesson7() :
-  AbstractFilter()
+Lesson7::Lesson7()
 {
   initialize();
 }
@@ -42,10 +46,8 @@ void Lesson7::setupFilterParameters()
   FilterParameterVectorType parameters;
 
   DataContainerSelectionFilterParameter::RequirementType dcReq;
-  IGeometry::Types geomTypes = {IGeometry::Type::Triangle};
-  dcReq.dcGeometryTypes = geomTypes;
+  dcReq.dcGeometryTypes = {IGeometry::Type::Triangle};
   parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson7, dcReq));
-
 
   setFilterParameters(parameters);
 }
@@ -98,7 +100,10 @@ void Lesson7::execute()
     return;
   }
 
-  if (getCancel() == true) { return; }
+  if(getCancel())
+  {
+    return;
+  }
 
   TriangleGeom::Pointer triGeom = getDataContainerArray()->getDataContainer(getGeometrySelection())->getGeometryAs<TriangleGeom>();
   SharedVertexList::Pointer vertices = triGeom->getVertices();
@@ -155,13 +160,13 @@ AbstractFilter::Pointer Lesson7::newFilterInstance(bool copyFilterParameters) co
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getCompiledLibraryName() const
+QString Lesson7::getCompiledLibraryName() const
 { return ProgWorkshopConstants::ProgWorkshopBaseName; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getBrandingString() const
+QString Lesson7::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -169,7 +174,7 @@ const QString Lesson7::getBrandingString() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getFilterVersion() const
+QString Lesson7::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -180,13 +185,13 @@ const QString Lesson7::getFilterVersion() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getGroupName() const
+QString Lesson7::getGroupName() const
 { return SIMPL::FilterGroups::Unsupported; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QUuid Lesson7::getUuid()
+QUuid Lesson7::getUuid() const
 {
   return QUuid("{a4b86d5f-d812-50d9-8d95-3f3f5fcb0597}");
 }
@@ -194,12 +199,52 @@ const QUuid Lesson7::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getSubGroupName() const
+QString Lesson7::getSubGroupName() const
 { return "ProgWorkshop"; }
 
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson7::getHumanLabel() const
+QString Lesson7::getHumanLabel() const
 { return "Lesson7"; }
 
+// -----------------------------------------------------------------------------
+Lesson7::Pointer Lesson7::NullPointer()
+{
+  return Pointer(static_cast<Self*>(nullptr));
+}
+
+// -----------------------------------------------------------------------------
+std::shared_ptr<Lesson7> Lesson7::New()
+{
+  struct make_shared_enabler : public Lesson7
+  {
+  };
+  std::shared_ptr<make_shared_enabler> val = std::make_shared<make_shared_enabler>();
+  val->setupFilterParameters();
+  return val;
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson7::getNameOfClass() const
+{
+  return QString("Lesson7");
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson7::ClassName()
+{
+  return QString("Lesson7");
+}
+
+// -----------------------------------------------------------------------------
+void Lesson7::setGeometrySelection(const DataArrayPath& value)
+{
+  m_GeometrySelection = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson7::getGeometrySelection() const
+{
+  return m_GeometrySelection;
+}

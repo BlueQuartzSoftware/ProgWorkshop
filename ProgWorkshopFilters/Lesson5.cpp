@@ -11,6 +11,7 @@
 #include "SIMPLib/FilterParameters/FloatFilterParameter.h"
 #include "SIMPLib/FilterParameters/LinkedBooleanFilterParameter.h"
 #include "SIMPLib/Utilities/ParallelDataAlgorithm.h"
+#include "SIMPLib/DataContainers/DataContainerArray.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
@@ -100,7 +101,6 @@ Lesson5::Lesson5()
 , m_OutputDataArrayPath(SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "IQ_Mod")
 , m_Value(12342.1f)
 , m_Operator(1)
-, m_Selection(false)
 , m_FloatValue(128.128f)
 {
   initialize();
@@ -274,7 +274,7 @@ AbstractFilter::Pointer Lesson5::newFilterInstance(bool copyFilterParameters) co
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getCompiledLibraryName() const
+QString Lesson5::getCompiledLibraryName() const
 {
   return ProgWorkshopConstants::ProgWorkshopBaseName;
 }
@@ -282,7 +282,7 @@ const QString Lesson5::getCompiledLibraryName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getBrandingString() const
+QString Lesson5::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -290,7 +290,7 @@ const QString Lesson5::getBrandingString() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getFilterVersion() const
+QString Lesson5::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -301,7 +301,7 @@ const QString Lesson5::getFilterVersion() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getGroupName() const
+QString Lesson5::getGroupName() const
 {
   return SIMPL::FilterGroups::Unsupported;
 }
@@ -309,7 +309,7 @@ const QString Lesson5::getGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QUuid Lesson5::getUuid()
+QUuid Lesson5::getUuid() const
 {
   return QUuid("{169f34c2-62b2-57cf-ac79-9067dbac0d73}");
 }
@@ -317,7 +317,7 @@ const QUuid Lesson5::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getSubGroupName() const
+QString Lesson5::getSubGroupName() const
 {
   return "ProgWorkshop";
 }
@@ -325,7 +325,108 @@ const QString Lesson5::getSubGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson5::getHumanLabel() const
+QString Lesson5::getHumanLabel() const
 {
   return "Lesson5";
+}
+
+// -----------------------------------------------------------------------------
+Lesson5::Pointer Lesson5::NullPointer()
+{
+  return Pointer(static_cast<Self*>(nullptr));
+}
+
+// -----------------------------------------------------------------------------
+std::shared_ptr<Lesson5> Lesson5::New()
+{
+  struct make_shared_enabler : public Lesson5
+  {
+  };
+  std::shared_ptr<make_shared_enabler> val = std::make_shared<make_shared_enabler>();
+  val->setupFilterParameters();
+  return val;
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson5::getNameOfClass() const
+{
+  return QString("Lesson5");
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson5::ClassName()
+{
+  return QString("Lesson5");
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setInputDataArrayPath(const DataArrayPath& value)
+{
+  m_InputDataArrayPath = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson5::getInputDataArrayPath() const
+{
+  return m_InputDataArrayPath;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setOutputDataArrayPath(const DataArrayPath& value)
+{
+  m_OutputDataArrayPath = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson5::getOutputDataArrayPath() const
+{
+  return m_OutputDataArrayPath;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setValue(float value)
+{
+  m_Value = value;
+}
+
+// -----------------------------------------------------------------------------
+float Lesson5::getValue() const
+{
+  return m_Value;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setOperator(int value)
+{
+  m_Operator = value;
+}
+
+// -----------------------------------------------------------------------------
+int Lesson5::getOperator() const
+{
+  return m_Operator;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setSelection(bool value)
+{
+  m_Selection = value;
+}
+
+// -----------------------------------------------------------------------------
+bool Lesson5::getSelection() const
+{
+  return m_Selection;
+}
+
+// -----------------------------------------------------------------------------
+void Lesson5::setFloatValue(float value)
+{
+  m_FloatValue = value;
+}
+
+// -----------------------------------------------------------------------------
+float Lesson5::getFloatValue() const
+{
+  return m_FloatValue;
 }

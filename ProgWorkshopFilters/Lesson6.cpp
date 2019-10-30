@@ -4,9 +4,14 @@
 
 #include "Lesson6.h"
 
+#include <QtCore/QTextStream>
+
 #include "SIMPLib/Common/Constants.h"
+
 #include "SIMPLib/Geometry/ImageGeom.h"
 #include "SIMPLib/FilterParameters/DataContainerSelectionFilterParameter.h"
+#include "SIMPLib/DataContainers/DataContainerArray.h"
+#include "SIMPLib/DataContainers/DataContainer.h"
 
 #include "ProgWorkshop/ProgWorkshopConstants.h"
 #include "ProgWorkshop/ProgWorkshopVersion.h"
@@ -151,7 +156,7 @@ AbstractFilter::Pointer Lesson6::newFilterInstance(bool copyFilterParameters) co
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getCompiledLibraryName() const
+QString Lesson6::getCompiledLibraryName() const
 {
   return ProgWorkshopConstants::ProgWorkshopBaseName;
 }
@@ -159,7 +164,7 @@ const QString Lesson6::getCompiledLibraryName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getBrandingString() const
+QString Lesson6::getBrandingString() const
 {
   return "ProgWorkshop";
 }
@@ -167,7 +172,7 @@ const QString Lesson6::getBrandingString() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getFilterVersion() const
+QString Lesson6::getFilterVersion() const
 {
   QString version;
   QTextStream vStream(&version);
@@ -178,7 +183,7 @@ const QString Lesson6::getFilterVersion() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getGroupName() const
+QString Lesson6::getGroupName() const
 {
   return SIMPL::FilterGroups::Unsupported;
 }
@@ -186,7 +191,7 @@ const QString Lesson6::getGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QUuid Lesson6::getUuid()
+QUuid Lesson6::getUuid() const
 {
   return QUuid("{b2eb2376-9c34-5744-bbb3-05c8874a3a31}");
 }
@@ -194,7 +199,7 @@ const QUuid Lesson6::getUuid()
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getSubGroupName() const
+QString Lesson6::getSubGroupName() const
 {
   return "ProgWorkshop";
 }
@@ -202,7 +207,48 @@ const QString Lesson6::getSubGroupName() const
 // -----------------------------------------------------------------------------
 //
 // -----------------------------------------------------------------------------
-const QString Lesson6::getHumanLabel() const
+QString Lesson6::getHumanLabel() const
 {
   return "Lesson6";
+}
+
+// -----------------------------------------------------------------------------
+Lesson6::Pointer Lesson6::NullPointer()
+{
+  return Pointer(static_cast<Self*>(nullptr));
+}
+
+// -----------------------------------------------------------------------------
+std::shared_ptr<Lesson6> Lesson6::New()
+{
+  struct make_shared_enabler : public Lesson6
+  {
+  };
+  std::shared_ptr<make_shared_enabler> val = std::make_shared<make_shared_enabler>();
+  val->setupFilterParameters();
+  return val;
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson6::getNameOfClass() const
+{
+  return QString("Lesson6");
+}
+
+// -----------------------------------------------------------------------------
+QString Lesson6::ClassName()
+{
+  return QString("Lesson6");
+}
+
+// -----------------------------------------------------------------------------
+void Lesson6::setGeometrySelection(const DataArrayPath& value)
+{
+  m_GeometrySelection = value;
+}
+
+// -----------------------------------------------------------------------------
+DataArrayPath Lesson6::getGeometrySelection() const
+{
+  return m_GeometrySelection;
 }

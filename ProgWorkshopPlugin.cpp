@@ -6,6 +6,7 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
+#include <QtCore/QTextStream>
 
 #include "SIMPLib/Filtering/FilterFactory.hpp"
 #include "SIMPLib/Filtering/FilterManager.h"
@@ -169,9 +170,9 @@ QMap<QString, QString> ProgWorkshopPlugin::getThirdPartyLicenses()
   fileStrList.push_back(":/ThirdParty/Qt.txt");
   fileStrList.push_back(":/ThirdParty/Qwt.txt");
 
-  for(QList<QString>::iterator iter = fileStrList.begin(); iter != fileStrList.end(); iter++)
+  for(const auto& filepath : fileStrList)
   {
-    QFile file(*iter);
+    QFile file(filepath);
     QFileInfo licenseFileInfo(file);
 
     if(licenseFileInfo.exists())
