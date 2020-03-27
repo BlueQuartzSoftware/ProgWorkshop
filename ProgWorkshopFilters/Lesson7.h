@@ -16,12 +16,13 @@ class ProgWorkshop_EXPORT Lesson7 : public AbstractFilter
 {
   Q_OBJECT
 
-#ifdef SIMPL_ENABLE_PYTHON
-  PYB11_CREATE_BINDINGS(Lesson7 SUPERCLASS AbstractFilter)
+  // Start Python bindings declarations
+  PYB11_BEGIN_BINDINGS(Lesson7 SUPERCLASS AbstractFilter)
   PYB11_SHARED_POINTERS(Lesson7)
   PYB11_FILTER_NEW_MACRO(Lesson7)
   PYB11_PROPERTY(DataArrayPath GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
-#endif
+  PYB11_END_BINDINGS()
+  // End Python bindings declarations
 
 public:
   using Self = Lesson7;

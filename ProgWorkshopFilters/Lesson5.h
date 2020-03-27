@@ -17,23 +17,18 @@ class ProgWorkshop_EXPORT Lesson5 : public AbstractFilter
 {
   Q_OBJECT
 
-#ifdef SIMPL_ENABLE_PYTHON
-  PYB11_CREATE_BINDINGS(Lesson5 SUPERCLASS AbstractFilter)
+  // Start Python bindings declarations
+  PYB11_BEGIN_BINDINGS(Lesson5 SUPERCLASS AbstractFilter)
   PYB11_SHARED_POINTERS(Lesson5)
   PYB11_FILTER_NEW_MACRO(Lesson5)
-  PYB11_FILTER_PARAMETER(DataArrayPath, InputDataArrayPath)
-  PYB11_FILTER_PARAMETER(DataArrayPath, OutputDataArrayPath)
-  PYB11_FILTER_PARAMETER(float, Value)
-  PYB11_FILTER_PARAMETER(int, Operator)
-  PYB11_FILTER_PARAMETER(bool, Selection)
-  PYB11_FILTER_PARAMETER(float, FloatValue)
   PYB11_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
   PYB11_PROPERTY(DataArrayPath OutputDataArrayPath READ getOutputDataArrayPath WRITE setOutputDataArrayPath)
   PYB11_PROPERTY(float Value READ getValue WRITE setValue)
   PYB11_PROPERTY(int Operator READ getOperator WRITE setOperator)
   PYB11_PROPERTY(bool Selection READ getSelection WRITE setSelection)
   PYB11_PROPERTY(float FloatValue READ getFloatValue WRITE setFloatValue)
-#endif
+  PYB11_END_BINDINGS()
+  // End Python bindings declarations
 
 public:
   using Self = Lesson5;
