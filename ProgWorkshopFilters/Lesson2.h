@@ -57,7 +57,6 @@ public:
    * @return Value of InputDataArrayPath
    */
   DataArrayPath getInputDataArrayPath() const;
-
   Q_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
 
   /**
@@ -69,7 +68,6 @@ public:
    * @return Value of OutputDataArrayPath
    */
   DataArrayPath getOutputDataArrayPath() const;
-
   Q_PROPERTY(DataArrayPath OutputDataArrayPath READ getOutputDataArrayPath WRITE setOutputDataArrayPath)
 
   /**
@@ -81,7 +79,6 @@ public:
    * @return Value of Value
    */
   float getValue() const;
-
   Q_PROPERTY(float Value READ getValue WRITE setValue)
 
   /**

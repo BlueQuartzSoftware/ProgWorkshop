@@ -60,7 +60,6 @@ public:
    * @return Value of InputDataArrayPath
    */
   DataArrayPath getInputDataArrayPath() const;
-
   Q_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
 
   /**
@@ -72,7 +71,6 @@ public:
    * @return Value of OutputDataArrayPath
    */
   DataArrayPath getOutputDataArrayPath() const;
-
   Q_PROPERTY(DataArrayPath OutputDataArrayPath READ getOutputDataArrayPath WRITE setOutputDataArrayPath)
 
   /**
@@ -84,7 +82,6 @@ public:
    * @return Value of Value
    */
   float getValue() const;
-
   Q_PROPERTY(float Value READ getValue WRITE setValue)
 
   /**
@@ -96,7 +93,6 @@ public:
    * @return Value of Operator
    */
   int getOperator() const;
-
   Q_PROPERTY(int Operator READ getOperator WRITE setOperator)
 
   /**
@@ -108,7 +104,6 @@ public:
    * @return Value of Selection
    */
   bool getSelection() const;
-
   Q_PROPERTY(bool Selection READ getSelection WRITE setSelection)
 
   /**
@@ -120,7 +115,6 @@ public:
    * @return Value of FloatValue
    */
   float getFloatValue() const;
-
   Q_PROPERTY(float FloatValue READ getFloatValue WRITE setFloatValue)
 
   /**

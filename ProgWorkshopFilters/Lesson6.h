@@ -54,7 +54,6 @@ public:
    * @return Value of GeometrySelection
    */
   DataArrayPath getGeometrySelection() const;
-
   Q_PROPERTY(DataArrayPath GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
 
   /**
