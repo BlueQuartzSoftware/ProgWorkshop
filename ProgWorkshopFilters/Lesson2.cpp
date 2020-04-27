@@ -75,7 +75,7 @@ void Lesson2::dataCheck()
   // m_InputData is a **RAW** pointer which is both dangerous and fast
   // An error message will be broadcasted if there are any errors
   std::vector<size_t> cDims = {1}; // Single component Array
-  m_InputDataPtr = getDataContainerArray()->getPrereqArrayFromPath<FloatArrayType, AbstractFilter>(this, getInputDataArrayPath(), cDims);
+  m_InputDataPtr = getDataContainerArray()->getPrereqArrayFromPath<FloatArrayType>(this, getInputDataArrayPath(), cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
   if(nullptr != m_InputDataPtr.lock())
   {
@@ -85,7 +85,7 @@ void Lesson2::dataCheck()
   //-- Validate the Output Array
   // Be sure to add  DEFINE_DATAARRAY_VARIABLE(float, OutputArray)  in the header in the private section
   cDims[0] = 1; // This is not necessary because we are creating a Single Component Array
-  m_OutputDataPtr = getDataContainerArray()->createNonPrereqArrayFromPath<FloatArrayType, AbstractFilter, float>(this, getOutputDataArrayPath(), 0, cDims);
+  m_OutputDataPtr = getDataContainerArray()->createNonPrereqArrayFromPath<FloatArrayType>(this, getOutputDataArrayPath(), 0, cDims);
   /* Validate the Weak Pointer wraps a non-nullptr pointer to a DataArray<T> object */
   if(nullptr != m_OutputDataPtr.lock())
   {
@@ -97,20 +97,6 @@ void Lesson2::dataCheck()
     setErrorCondition(-10000, "Float value must be greater than 0.0");
   }
 
-}
-
-// -----------------------------------------------------------------------------
-//
-// -----------------------------------------------------------------------------
-void Lesson2::preflight()
-{
-  // These are the REQUIRED lines of CODE to make sure the filter behaves correctly
-  setInPreflight(true);              // Set the fact that we are preflighting.
-  emit preflightAboutToExecute();    // Emit this signal so that other widgets can do one file update
-  emit updateFilterParameters(this); // Emit this signal to have the widgets push their values down to the filter
-  dataCheck();                       // Run our DataCheck to make sure everthing is setup correctly
-  emit preflightExecuted();          // We are done preflighting this filter
-  setInPreflight(false);             // Inform the system this filter is NOT in preflight mode anymore.
 }
 
 // -----------------------------------------------------------------------------

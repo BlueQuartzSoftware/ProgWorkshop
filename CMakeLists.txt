@@ -205,23 +205,14 @@ target_link_libraries(${plug_target_name}
 if(SIMPL_BUILD_TESTING) 
   include(${${PLUGIN_NAME}_SOURCE_DIR}/Test/CMakeLists.txt) 
 endif() 
- 
+
 # -------------------------------------------------------------------- 
 # If Python Wrapping is enabled then generate the Python module code 
 if(SIMPL_ENABLE_PYTHON)
-  include("${SIMPLProj_SOURCE_DIR}/Wrapping/Python/Pybind11/cmake/WrappingFunctions.cmake")
-  string(TOLOWER ${PLUGIN_NAME} PLUGIN_NAME_lower) 
-  CreatePybind11Module(MODULE_NAME ${PLUGIN_NAME} 
-                    SOURCE_DIR "${${PLUGIN_NAME}_SOURCE_DIR}/${PLUGIN_NAME}Filters" 
-                    PATH_TO_STRIP "${PLUGIN_NAME}/${PLUGIN_NAME}Filters" 
-                    OUTPUT_PATH "${${PLUGIN_NAME}_BINARY_DIR}/Wrapping/PythonCore" 
-                    BINARY_DIR "${${PLUGIN_NAME}_BINARY_DIR}" 
-                    MODULE_TEMPLATE_FILE "${SIMPLProj_SOURCE_DIR}/Wrapping/Python/Pybind11/Templates/PluginModuleCodeTemplate.in.cpp" 
-                    MODULE_LINK_LIBRARIES ${plug_target_name} 
-  )
+  include(${SIMPLProj_SOURCE_DIR}/Wrapping/Python/Binding/CreatePybind11Module.cmake)
+
+  CreatePybind11Plugin(PLUGIN_NAME ${PLUGIN_NAME} PLUGIN_TARGET ${plug_target_name})
 endif()
-
-
 
 #-------------------------------------------------------------------------------
 #- This installs all the prebuilt pipeline files.
