@@ -17,21 +17,21 @@
 //
 // -----------------------------------------------------------------------------
 ProgWorkshopPlugin::ProgWorkshopPlugin()
-: m_Version(ProgWorkshop::Version::Package())
+: m_Version(ProgWorkshop::Version::Complete())
 , m_CompatibilityVersion(ProgWorkshop::Version::Package())
 , m_Vendor("Open-Source")
 , // Initialize ProgWorkshop's Vendor Name Here
-    m_URL("http://www.github.com/bluequartzsoftware/ProgWorkshop")
+m_URL("http://www.github.com/bluequartzsoftware/ProgWorkshop")
 , // Initialize Company URL Here
-    m_Location("")
+m_Location("")
 , // Initialize ProgWorkshop library Location Here
-    m_Description("Descrption")
+m_Description("Descrption")
 , // Initialize ProgWorkshop's Description Here
-    m_Copyright("")
+m_Copyright("")
 , // Initialize ProgWorkshop's Copyright Here
-    m_Filters(QList<QString>())
+m_Filters(QList<QString>())
 , // Initialize ProgWorkshop's List of Dependencies Here
-    m_DidLoad(false)
+m_DidLoad(false)
 {
 }
 
