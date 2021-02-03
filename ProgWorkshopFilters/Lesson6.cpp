@@ -63,6 +63,7 @@ void Lesson6::setupFilterParameters()
 void Lesson6::dataCheck()
 {
   clearErrorCode();
+  clearWarningCode();
 
   //--------------
   // Get the ImageGeometry object from the selected DataContainer. If we can't get

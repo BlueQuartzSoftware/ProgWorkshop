@@ -85,6 +85,9 @@ void Lesson4::setupFilterParameters()
 // -----------------------------------------------------------------------------
 void Lesson4::dataCheck()
 {
+  clearErrorCode();
+  clearWarningCode();
+
   // Reset the error condition to ZERO
   clearErrorCode();
 

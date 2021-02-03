@@ -57,6 +57,7 @@ void Lesson7::setupFilterParameters()
 void Lesson7::dataCheck()
 {
   clearErrorCode();
+  clearWarningCode();
 
   //--------------
   // Get the TriangleGeom object from the selected DataContainer. If we can't get
