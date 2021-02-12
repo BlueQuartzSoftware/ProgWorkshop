@@ -191,12 +191,12 @@ private:
   std::weak_ptr<DataArray<float>> m_OutputDataPtr;
   float* m_OutputData = nullptr;
 
-  DataArrayPath m_InputDataArrayPath = {};
-  DataArrayPath m_OutputDataArrayPath = {};
-  float m_Value = {};
-  int m_Operator = {};
-  bool m_Selection = {};
-  float m_FloatValue = {};
+  DataArrayPath m_InputDataArrayPath = {SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, SIMPL::CellData::ConfidenceIndex};
+  DataArrayPath m_OutputDataArrayPath = {SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName, "CI_Mod"};
+  float m_Value = {234.0f};
+  int m_Operator = {0};
+  bool m_Selection = {false};
+  float m_FloatValue = {128.123f};
 
 public:
   Lesson4(const Lesson4&) = delete;            // Copy Constructor Not Implemented

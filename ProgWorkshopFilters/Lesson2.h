@@ -154,9 +154,12 @@ private:
   std::weak_ptr<DataArray<float>> m_OutputDataPtr;
   float* m_OutputData = nullptr;
 
-  DataArrayPath m_InputDataArrayPath = {};
-  DataArrayPath m_OutputDataArrayPath = {};
-  float m_Value = {};
+  DataArrayPath m_InputDataArrayPath = {
+      SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName,
+      SIMPL::CellData::ConfidenceIndex}; // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
+  DataArrayPath m_OutputDataArrayPath = {SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName,
+                                         "Lesson2_Output"}; // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
+  float m_Value = {0.0f};                                   // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
 
 public:
   Lesson2(const Lesson2&) = delete;            // Copy Constructor Not Implemented

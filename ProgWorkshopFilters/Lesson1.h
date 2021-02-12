@@ -5,8 +5,9 @@
 #pragma once
 
 #include "SIMPLib/SIMPLib.h"
-#include "SIMPLib/Filtering/AbstractFilter.h"
+#include "SIMPLib/Common/Constants.h"
 #include "SIMPLib/DataArrays/DataArray.hpp"
+#include "SIMPLib/Filtering/AbstractFilter.h"
 
 #include "ProgWorkshop/ProgWorkshopDLLExport.h"
 
@@ -155,9 +156,12 @@ private:
   std::weak_ptr<DataArray<float>> m_OutputDataPtr;
   float* m_OutputData = nullptr;
 
-  DataArrayPath m_InputDataArrayPath = {};
-  DataArrayPath m_OutputDataArrayPath = {};
-  float m_Value = {};
+  DataArrayPath m_InputDataArrayPath = {
+      SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName,
+      SIMPL::CellData::ConfidenceIndex}; // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
+  DataArrayPath m_OutputDataArrayPath = {SIMPL::Defaults::ImageDataContainerName, SIMPL::Defaults::CellAttributeMatrixName,
+                                         "Lesson1_Output"}; // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
+  float m_Value = {0.0f};                                   // Initialize all your filter parameters here.  SIMPL has a Constants file that developers can use to help set common names., "", ""};
 
 public:
   Lesson1(const Lesson1&) = delete;            // Copy Constructor Not Implemented
