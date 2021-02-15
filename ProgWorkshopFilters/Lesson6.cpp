@@ -52,7 +52,7 @@ void Lesson6::setupFilterParameters()
   IGeometry::Types geomTypes = {IGeometry::Type::Image};
   dcReq.dcGeometryTypes = geomTypes;
   // Add the FilterParameter so that it shows up in the GUI
-  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson6, dcReq));
+  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::Category::RequiredArray, Lesson6, dcReq));
 
   setFilterParameters(parameters);
 }

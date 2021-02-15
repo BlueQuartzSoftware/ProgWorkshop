@@ -50,10 +50,10 @@ void Lesson2::setupFilterParameters()
   //-- Add a Requirement to the input array that is be of type float and 1 component
   DataArraySelectionFilterParameter::RequirementType dasReq = DataArraySelectionFilterParameter::CreateCategoryRequirement(SIMPL::TypeNames::Float, 1, AttributeMatrix::Category::Any);
 
-  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::RequiredArray, Lesson2, dasReq));
+  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::Category::RequiredArray, Lesson2, dasReq));
   DataArrayCreationFilterParameter::RequirementType dacReq;
-  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::CreatedArray, Lesson2, dacReq));
-  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Parameter, Lesson2));
+  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::Category::CreatedArray, Lesson2, dacReq));
+  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Category::Parameter, Lesson2));
   setFilterParameters(parameters);
 }
 

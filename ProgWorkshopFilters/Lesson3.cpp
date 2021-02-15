@@ -52,10 +52,10 @@ void Lesson3::setupFilterParameters()
   //-- Add a Requirement to the input array that is be of type float and 1 component
   DataArraySelectionFilterParameter::RequirementType dasReq = DataArraySelectionFilterParameter::CreateCategoryRequirement(SIMPL::TypeNames::Float, 1, AttributeMatrix::Category::Any);
 
-  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::RequiredArray, Lesson3, dasReq));
+  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::Category::RequiredArray, Lesson3, dasReq));
   DataArrayCreationFilterParameter::RequirementType dacReq;
-  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::CreatedArray, Lesson3, dacReq));
-  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Parameter, Lesson3));
+  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::Category::CreatedArray, Lesson3, dacReq));
+  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Category::Parameter, Lesson3));
 
   // When adding a Choice FilterParameter you need to define the choices first
   // What goes into the choices can be statically coded (Like below) or dynamically
@@ -67,7 +67,7 @@ void Lesson3::setupFilterParameters()
     choices.push_back("+");
     choices.push_back("-");
     // Create the Choice Filter Parameter and add it to the list of parameters
-    parameters.push_back(SIMPL_NEW_CHOICE_FP("Operator", Operator, FilterParameter::Parameter, Lesson3, choices, false));
+    parameters.push_back(SIMPL_NEW_CHOICE_FP("Operator", Operator, FilterParameter::Category::Parameter, Lesson3, choices, false));
   }
 
 

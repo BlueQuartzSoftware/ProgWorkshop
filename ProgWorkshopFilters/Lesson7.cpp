@@ -46,7 +46,7 @@ void Lesson7::setupFilterParameters()
 
   DataContainerSelectionFilterParameter::RequirementType dcReq;
   dcReq.dcGeometryTypes = {IGeometry::Type::Triangle};
-  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::RequiredArray, Lesson7, dcReq));
+  parameters.push_back(SIMPL_NEW_DC_SELECTION_FP("Geometry", GeometrySelection, FilterParameter::Category::RequiredArray, Lesson7, dcReq));
 
   setFilterParameters(parameters);
 }

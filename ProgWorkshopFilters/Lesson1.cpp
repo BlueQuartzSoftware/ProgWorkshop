@@ -48,10 +48,10 @@ void Lesson1::setupFilterParameters()
 {
   FilterParameterVectorType parameters;
   DataArraySelectionFilterParameter::RequirementType dasReq;
-  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::RequiredArray, Lesson1, dasReq));
+  parameters.push_back(SIMPL_NEW_DA_SELECTION_FP("InputDataArrayPath", InputDataArrayPath, FilterParameter::Category::RequiredArray, Lesson1, dasReq));
   DataArrayCreationFilterParameter::RequirementType dacReq;
-  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::CreatedArray, Lesson1, dacReq));
-  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Parameter, Lesson1));
+  parameters.push_back(SIMPL_NEW_DA_CREATION_FP("OutputDataArrayPath", OutputDataArrayPath, FilterParameter::Category::CreatedArray, Lesson1, dacReq));
+  parameters.push_back(SIMPL_NEW_FLOAT_FP("Value", Value, FilterParameter::Category::Parameter, Lesson1));
   setFilterParameters(parameters);
 }
 
