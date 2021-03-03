@@ -131,7 +131,7 @@ void Lesson5::setupFilterParameters()
   // What goes into the choices can be statically coded (Like below) or dynamically
   // computed based on something. EMsoft has an example of this.
   {
-    QVector<QString> choices;
+    std::vector<QString> choices;
     choices.push_back("*");
     choices.push_back("/");
     choices.push_back("+");
@@ -140,7 +140,7 @@ void Lesson5::setupFilterParameters()
     parameters.push_back(SIMPL_NEW_CHOICE_FP("Operator", Operator, FilterParameter::Category::Parameter, Lesson5, choices, false));
   }
 
-  QStringList linkedProps("FloatValue");
+  std::vector<QString> linkedProps = {"FloatValue"};
   parameters.push_back(SIMPL_NEW_LINKED_BOOL_FP("Linked Bool", Selection, FilterParameter::Category::Parameter, Lesson5, linkedProps));
   parameters.push_back(SIMPL_NEW_FLOAT_FP("Float Value", FloatValue, FilterParameter::Category::Parameter, Lesson5));
 

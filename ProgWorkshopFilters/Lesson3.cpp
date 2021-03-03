@@ -56,7 +56,7 @@ void Lesson3::setupFilterParameters()
   // What goes into the choices can be statically coded (Like below) or dynamically
   // computed based on something. EMsoft has an example of this.
   {
-    QVector<QString> choices;
+    std::vector<QString> choices;
     choices.push_back("*");
     choices.push_back("/");
     choices.push_back("+");
