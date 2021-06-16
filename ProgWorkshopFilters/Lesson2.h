@@ -5,8 +5,8 @@
 #pragma once
 
 #include "SIMPLib/SIMPLib.h"
-#include "SIMPLib/Filtering/AbstractFilter.h"
 #include "SIMPLib/DataArrays/DataArray.hpp"
+#include "SIMPLib/Filtering/AbstractFilter.h"
 
 #include "ProgWorkshop/ProgWorkshopDLLExport.h"
 
@@ -19,6 +19,7 @@ class ProgWorkshop_EXPORT Lesson2 : public AbstractFilter
 
   // Start Python bindings declarations
   PYB11_BEGIN_BINDINGS(Lesson2 SUPERCLASS AbstractFilter)
+  PYB11_FILTER()
   PYB11_SHARED_POINTERS(Lesson2)
   PYB11_FILTER_NEW_MACRO(Lesson2)
   PYB11_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
@@ -167,4 +168,3 @@ public:
   Lesson2& operator=(const Lesson2&) = delete; // Copy Assignment Not Implemented
   Lesson2& operator=(Lesson2&&) = delete;      // Move Assignment Not Implemented
 };
-

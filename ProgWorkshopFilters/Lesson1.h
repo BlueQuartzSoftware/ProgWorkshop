@@ -20,6 +20,7 @@ class ProgWorkshop_EXPORT Lesson1 : public AbstractFilter
 
   // Start Python bindings declarations
   PYB11_BEGIN_BINDINGS(Lesson1 SUPERCLASS AbstractFilter)
+  PYB11_FILTER()
   PYB11_SHARED_POINTERS(Lesson1)
   PYB11_FILTER_NEW_MACRO(Lesson1)
   PYB11_PROPERTY(DataArrayPath InputDataArrayPath READ getInputDataArrayPath WRITE setInputDataArrayPath)
@@ -169,4 +170,3 @@ public:
   Lesson1& operator=(const Lesson1&) = delete; // Copy Assignment Not Implemented
   Lesson1& operator=(Lesson1&&) = delete;      // Move Assignment Not Implemented
 };
-

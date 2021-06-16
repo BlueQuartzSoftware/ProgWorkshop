@@ -18,6 +18,7 @@ class ProgWorkshop_EXPORT Lesson7 : public AbstractFilter
 
   // Start Python bindings declarations
   PYB11_BEGIN_BINDINGS(Lesson7 SUPERCLASS AbstractFilter)
+  PYB11_FILTER()
   PYB11_SHARED_POINTERS(Lesson7)
   PYB11_FILTER_NEW_MACRO(Lesson7)
   PYB11_PROPERTY(DataArrayPath GeometrySelection READ getGeometrySelection WRITE setGeometrySelection)
@@ -133,4 +134,3 @@ public:
 private:
   DataArrayPath m_GeometrySelection = {};
 };
-

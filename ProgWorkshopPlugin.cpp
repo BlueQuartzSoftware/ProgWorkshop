@@ -28,8 +28,6 @@ m_Location("")
 m_Description("Descrption")
 , // Initialize ProgWorkshop's Description Here
 m_Copyright("")
-, // Initialize ProgWorkshop's Copyright Here
-m_Filters(QList<QString>())
 , // Initialize ProgWorkshop's List of Dependencies Here
 m_DidLoad(false)
 {

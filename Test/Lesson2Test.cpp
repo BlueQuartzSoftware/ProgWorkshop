@@ -22,20 +22,19 @@ class Lesson2Test
 {
 
   public:
-    Lesson2Test() {}
-    virtual ~Lesson2Test() {}
+    Lesson2Test() = default;
+    virtual ~Lesson2Test() = default;
 
-
-  // -----------------------------------------------------------------------------
-  //
-  // -----------------------------------------------------------------------------
-  void RemoveTestFiles()
-  {
-  #if REMOVE_TEST_FILES
+    // -----------------------------------------------------------------------------
+    //
+    // -----------------------------------------------------------------------------
+    void RemoveTestFiles()
+    {
+#if REMOVE_TEST_FILES
     QFile::remove(UnitTest::Lesson2Test::TestFile1);
     QFile::remove(UnitTest::Lesson2Test::TestFile2);
   #endif
-  }
+    }
 
   // -----------------------------------------------------------------------------
   //
@@ -100,9 +99,7 @@ class Lesson2Test
   }
 
   private:
-    Lesson2Test(const Lesson2Test&); // Copy Constructor Not Implemented
-    void operator=(const Lesson2Test&); // Operator '=' Not Implemented
-
-
+    Lesson2Test(const Lesson2Test&) = delete;    // Copy Constructor Not Implemented
+    void operator=(const Lesson2Test&) = delete; // Operator '=' Not Implemented
 };
 
